@@ -71,8 +71,6 @@ var execute = (item) => {
     cp.exec(command, (err) => {
         if (err) throw err;
 
-        console.log('Compiled: ' + srcPagesDir + name + '.mustache ==> dist/' + filename + '.html');
-
         // Remove the temp file
         fs.unlink(tmpDataFile, (err) => {
             if (err) throw err;
