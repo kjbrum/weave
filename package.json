@@ -1,0 +1,43 @@
+{
+  "name": "sbx-proto",
+  "version": "0.1.0",
+  "description": "Starter project for prototyping.",
+  "scripts": {
+    "browsersync": "browser-sync start --server 'dist' --files 'dist/css/style.css, dist/js/*.min.js, dist/**/*.html'",
+    "build": "npm run clean && npm run mustache:build && npm run js:build && npm run css:build && npm run img:build",
+    "clean": "rm -rf dist/* && mkdir dist/css && mkdir dist/js && mkdir dist/img",
+    "css:autoprefix": "postcss --use autoprefixer --output dist/css/style.css dist/css/style.css",
+    "css:build": "npm run css:compile && npm run css:autoprefix",
+    "css:compile": "node-sass --output-style compressed src/scss/style.scss dist/css/style.css",
+    "css:watch": "watch 'npm run css:build' src/scss",
+    "dev": "parallelshell 'npm run build' 'npm run watch' 'npm run browsersync'",
+    "img:build": "cp -r src/img dist",
+    "img:watch": "watch 'npm run img:build' src/img",
+    "mustache:build": "node mustache-build.js",
+    "mustache:watch": "watch 'npm run mustache:build' src/pages src/partials src/data",
+    "js:build": "npm run js:head && npm run js:main",
+    "js:head": "uglifyjs src/js/head/*.js -o dist/js/head.min.js",
+    "js:main": "uglifyjs src/js/main/*.js -o dist/js/main.min.js",
+    "js:watch": "watch 'npm run js:build' src/js/head src/js/main",
+    "watch": "parallelshell 'npm run mustache:watch' 'npm run js:watch' 'npm run css:watch' 'npm run img:watch'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjbrum/sbx-proto.git"
+  },
+  "author": "Kyle Brumm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kjbrum/sbx-proto/issues"
+  },
+  "homepage": "https://github.com/kjbrum/sbx-proto#readme",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "mustache": "^2.2.1",
+    "node-sass": "latest",
+    "parallelshell": "latest",
+    "postcss-cli": "latest",
+    "uglify-js": "latest",
+    "watch": "latest"
+  }
+}

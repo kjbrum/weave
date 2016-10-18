@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{> head }}
+
+    <body>
+        <!-- Navigation -->
+        {{> nav }}
+
+        <!-- Hero -->
+        {{> section-hero }}
+
+        <!-- Content -->
+        <div class="section section--blocks">
+            <div class="container">
+                {{# blocks }}
+                    {{> block }}
+                {{/ blocks }}
+            </div>
+        </div>
+
+        <!-- Footer -->
+        {{> footer }}
+
+        <!-- JavaScript -->
+        <script src="./js/main.min.js"></script>
+    </body>
+</html>
