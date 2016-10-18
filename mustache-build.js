@@ -4,6 +4,7 @@ const extend = require('util')._extend;
 
 const srcPagesDir = 'src/pages/';
 const srcPartialsDir = 'src/partials/';
+const srcDataDir = 'src/data/';
 
 // Get an array of all the partials
 var getPartialsList = function(dir, filelist) {
@@ -47,18 +48,18 @@ var execute = (item) => {
     }
 
     // Check for a data file
-    if (!fs.existsSync('src/data/' + name + '.json')) {
+    if (!fs.existsSync(srcDataDir + name + '.json')) {
         // Create a data file if needed
-        fs.writeFile('src/data/' + name + '.json', '{\n\n}', (err) => {
+        fs.writeFile(srcDataDir + name + '.json', '{\n\n}', (err) => {
             if (err) throw err;
         });
     }
 
     // Merge the data file with the default
-    var jsonData = mergeJSON('src/data/default.json', 'src/data/' + name + '.json');
+    var jsonData = mergeJSON(srcDataDir + 'default.json', srcDataDir + name + '.json');
 
     // Create a temp file
-    var tmpDataFile = 'src/data/default-' + name + '.tmp';
+    var tmpDataFile = srcDataDir + 'default-' + name + '.tmp';
     fs.writeFile(tmpDataFile, JSON.stringify(jsonData), (err) => {
         if (err) throw err;
     });
