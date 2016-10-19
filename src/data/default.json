@@ -2,6 +2,7 @@
     "slug": "default",
     "title": "SBX Proto",
     "description": "Just the default description",
+    "locations": ["Des Moines, IA", "Cedar Rapids, IA", "Iowa City, IA"],
     "blocks": [
         {
             "image": {
