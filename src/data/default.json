@@ -6,7 +6,7 @@
     "blocks": [
         {
             "image": {
-                "src": "http://placeholder.pics/svg/275/575E6B/82BCB9-575E6B",
+                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
                 "alt": "Just some placeholder pic."
             },
             "title": "The First Block Title",
@@ -14,7 +14,7 @@
         },
         {
             "image": {
-                "src": "http://placeholder.pics/svg/275/575E6B/82BCB9-575E6B",
+                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
                 "alt": "Just some placeholder pic."
             },
             "title": "Second Block Title",
@@ -22,7 +22,7 @@
         },
         {
             "image": {
-                "src": "http://placeholder.pics/svg/275/575E6B/82BCB9-575E6B",
+                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
                 "alt": "Just some placeholder pic."
             },
             "title": "Another Block Title",
@@ -30,7 +30,7 @@
         },
         {
             "image": {
-                "src": "http://placeholder.pics/svg/275/575E6B/82BCB9-575E6B",
+                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
                 "alt": "Just some placeholder pic."
             },
             "title": "Last Block Title",
