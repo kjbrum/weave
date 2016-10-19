@@ -4,7 +4,7 @@
   "description": "Starter project for prototyping.",
   "scripts": {
     "browsersync": "browser-sync start --server 'dist' --files 'dist/css/style.css, dist/js/*.min.js, dist/**/*.html'",
-    "build": "npm run clean && npm run mustache:build && npm run js:build && npm run css:build && npm run img:build",
+    "build": "npm run clean && npm run css:build && npm run img:build && npm run js:build && npm run mustache:build",
     "clean": "rm -rf dist/* && mkdir dist/css && mkdir dist/js && mkdir dist/img",
     "css:autoprefix": "postcss --use autoprefixer --output dist/css/style.css dist/css/style.css",
     "css:build": "npm run css:compile && npm run css:autoprefix",
