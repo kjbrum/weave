@@ -25,7 +25,7 @@
     "type": "git",
     "url": "https://github.com/kjbrum/sbx-proto.git"
   },
-  "author": "Kyle Brumm",
+  "author": "Kyle Brumm <kjbrumm@gmail.com> (http://kylebrumm.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kjbrum/sbx-proto/issues"
