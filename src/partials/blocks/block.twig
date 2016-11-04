@@ -1,0 +1,8 @@
+<div class="block">
+    {% if block.image %}
+        <img src="{{ block.image.src }}" alt="{{ block.image.alt }}">
+    {% endif %}
+
+    <div class="block__title">{{ block.title }}</div>
+    <div class="block__description">{{ block.description }}</div>
+</div>

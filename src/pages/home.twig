@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{> head }}
+    {% include '../partials/base/head.twig' %}
 
     <body>
         <!-- Navigation -->
-        {{> nav }}
+        {% include '../partials/general/nav.twig' %}
 
         <!-- Hero -->
-        {{> section-hero }}
+        {% include '../partials/sections/section-hero.twig' %}
 
         <!-- Footer -->
-        {{> footer }}
+        {% include '../partials/general/footer.twig' %}
 
         <!-- JavaScript -->
         <script src="./js/main.min.js"></script>

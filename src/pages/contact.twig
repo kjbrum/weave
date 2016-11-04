@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{> head }}
+    {% include '../partials/base/head.twig' %}
 
     <body>
         <!-- Navigation -->
-        {{> nav }}
+        {% include '../partials/general/nav.twig' %}
 
         <!-- Hero -->
-        {{> section-hero }}
+        {% include '../partials/sections/section-hero.twig' %}
 
         <!-- Locations -->
         <div class="section section--locations">
             <div class="container">
                 <h3>Locations</h3>
-                {{> locations }}
+                {% include '../partials/general/locations.twig' %}
             </div>
         </div>
 
         <!-- Footer -->
-        {{> footer }}
+        {% include '../partials/general/footer.twig' %}
 
         <!-- JavaScript -->
         <script src="./js/main.min.js"></script>

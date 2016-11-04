@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{> head }}
+    {% include '../partials/base/head.twig' %}
 
     <body>
         <!-- Navigation -->
-        {{> nav }}
+        {% include '../partials/general/nav.twig' %}
 
         <!-- Hero -->
-        {{> section-hero }}
+        {% include '../partials/sections/section-hero.twig' %}
 
         <!-- Content -->
         <div class="section section--blocks">
             <div class="container">
                 <div class="g g-center g-s-2 g-m-3 g-l-4">
-                    {{# blocks }}
+                    {% for block in blocks %}
                         <div class="gi">
-                            {{> block }}
+                            {% include '../partials/blocks/block.twig' %}
                         </div>
-                    {{/ blocks }}
+                    {% endfor %}
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
-        {{> footer }}
+        {% include '../partials/general/footer.twig' %}
 
         <!-- JavaScript -->
         <script src="./js/main.min.js"></script>

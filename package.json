@@ -4,7 +4,7 @@
   "description": "Starter project for prototyping.",
   "scripts": {
     "browsersync": "browser-sync start --server 'dist' --files 'dist/**/*'",
-    "build": "npm run clean && npm run setup:build && npm run css:build && npm run img:build && npm run js:build && npm run mustache:build",
+    "build": "npm run clean && npm run setup:build && npm run css:build && npm run img:build && npm run js:build && npm run twig:build",
     "clean": "rm -rf dist",
     "css:autoprefix": "postcss --use autoprefixer -r dist/css/*.css",
     "css:build": "npm run css:compile && npm run css:autoprefix",
@@ -13,14 +13,14 @@
     "dev": "parallelshell 'npm run build' 'npm run watch' 'npm run browsersync'",
     "img:build": "imagemin src/img/* -o dist/img",
     "img:watch": "watch 'npm run img:build' src/img",
-    "mustache:build": "node mustache-build.js",
-    "mustache:watch": "watch 'npm run mustache:build' src/pages src/partials src/data",
+    "twig:build": "node twig-build.js",
+    "twig:watch": "watch 'npm run twig:build' src/pages src/partials src/data",
     "js:build": "npm run js:head && npm run js:main",
     "js:head": "uglifyjs src/js/head/*.js -o dist/js/head.min.js",
     "js:main": "uglifyjs src/js/main/*.js -o dist/js/main.min.js",
     "js:watch": "watch 'npm run js:build' src/js/head src/js/main",
     "setup:build": "mkdir -p dist && mkdir -p dist/css && mkdir -p dist/js && mkdir -p dist/img",
-    "watch": "parallelshell 'npm run mustache:watch' 'npm run js:watch' 'npm run css:watch' 'npm run img:watch'"
+    "watch": "parallelshell 'npm run twig:watch' 'npm run js:watch' 'npm run css:watch' 'npm run img:watch'"
   },
   "repository": {
     "type": "git",
@@ -35,10 +35,10 @@
   "devDependencies": {
     "autoprefixer": "latest",
     "imagemin-cli": "latest",
-    "mustache": "latest",
     "node-sass": "latest",
     "parallelshell": "latest",
     "postcss-cli": "latest",
+    "twig": "latest",
     "uglify-js": "latest",
     "watch": "latest"
   }
