@@ -2,6 +2,7 @@
 const fs = require('fs');
 const extend = require('util')._extend;
 const Twig = require('twig');
+const beautify = require('js-beautify');
 
 // Variables
 const srcPagesDir = 'src/pages/';
@@ -33,7 +34,9 @@ var execute = (item) => {
     var data = mergeJSON(srcDataDir + 'default.json', srcDataDir + page + '.json');
 
     Twig.renderFile(srcPagesDir + page + '.twig', data, (err, html) => {
-        fs.writeFile(distDir + filename + '.html', html, (err) => {
+        var prettyHTML = beautify.html(html, { indent_size: 4 });
+
+        fs.writeFile(distDir + filename + '.html', prettyHTML, (err) => {
             if (err) throw err;
         });
     });

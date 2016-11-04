@@ -35,6 +35,7 @@
   "devDependencies": {
     "autoprefixer": "latest",
     "imagemin-cli": "latest",
+    "js-beautify": "latest",
     "node-sass": "latest",
     "parallelshell": "latest",
     "postcss-cli": "latest",
