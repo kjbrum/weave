@@ -1,0 +1,185 @@
+// Typography
+// ------------------------
+
+// General
+// ------------------------
+i,
+em {
+    font-style: italic;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+small {
+    font-size: 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    color: $secondary;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+        color: $secondary-light;
+    }
+}
+
+
+// Headings
+// ------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 0.5rem 0;
+    font-family: $font-secondary;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+h1,
+h2,
+h3 {
+    color: $primary;
+}
+
+h4,
+h5,
+h6 {
+    color: $gray-ultradark;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2.0rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+// Blockquotes
+// ------------------------
+q,
+blockquote {
+    display: block;
+    font-style: italic;
+    margin: 1rem 2rem;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid $gray-light;
+
+    @media (min-width: $bp-s) {
+        margin: 2rem 4rem;
+        text-align: justify;
+    }
+
+    &.quotes {
+        display: inline-block;
+        position: relative;
+        border: none;
+        padding-right: 0;
+        padding-left: 0;
+
+        &:before,
+        &:after {
+            position: absolute;
+            font-family: $font-secondary;
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        &:before {
+            content: $quote-left;
+            top: -10px;
+            left: -0.25rem;
+        }
+
+        &:after {
+            content: $quote-right;
+            bottom: -10px;
+            right: 0.5rem;
+            line-height: 0;
+        }
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+// Code
+// ------------------------
+pre,
+code {
+    margin: 0;
+    direction: ltr;
+    font-family: $font-mono;
+    color: $gray-ultradark;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: normal;
+    line-height: 1.5;
+    text-decoration: none;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    tab-size: 4;
+    hyphens: none;
+    background: $gray-ultralight;
+    border-radius: 3px;
+
+    .comment {
+        color: $gray;
+    }
+}
+
+pre {
+    padding: 1rem;
+    overflow: auto;
+}
+
+:not(pre) > code {
+    padding: 0.5rem;
+    white-space: normal;
+}
+
+
+// Misc
+// ------------------------
+hr {
+    height: 1px;
+    margin: 1.25rem 0;
+    border: 0;
+    background: $gray-light;
+}

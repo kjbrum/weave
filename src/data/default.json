@@ -1,6 +1,6 @@
 {
     "slug": "default",
-    "title": "SBX Proto",
+    "title": "SBX Proto | Starter project for prototyping.",
     "description": "Just the default description",
     "locations": ["Des Moines, IA", "Cedar Rapids, IA", "Iowa City, IA"],
     "blocks": [
