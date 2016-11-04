@@ -81,6 +81,9 @@ $max-width: 75rem;
 $num-columns: 12;
 $grid-width: $max-width;
 
+$grid-container-prefix: 'g';
+$grid-item-prefix: 'gi';
+
 $breakpoints: (
     xxs: (
         min: rem-calc(0),
