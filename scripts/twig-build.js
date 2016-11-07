@@ -7,9 +7,10 @@ const Twig = require('twig');
 const beautify = require('js-beautify');
 
 // Variables
-const srcPagesDir = 'src/pages/';
-const srcPartialsDir = 'src/partials/';
-const srcDataDir = 'src/data/';
+const srcDir = 'src/';
+const srcPagesDir = srcDir + 'pages/';
+const srcPartialsDir = srcDir + 'partials/';
+const srcDataDir = srcDir + 'data/';
 const distDir = 'dist/';
 
 // Merge two JSON files
@@ -49,7 +50,7 @@ var compileTwig = (item) => {
 
 
 // Loop through and compile all the pages
-fs.readdir(__dirname + '/' + srcPagesDir, (err, files) => {
+fs.readdir(srcPagesDir, (err, files) => {
     if (err) throw err;
     files.map(compileTwig);
 });
