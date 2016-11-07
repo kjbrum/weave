@@ -3,38 +3,48 @@
     "title": "SBX Proto | Starter project for prototyping.",
     "description": "Just the default description",
     "locations": ["Des Moines, IA", "Cedar Rapids, IA", "Iowa City, IA"],
-    "blocks": [
-        {
-            "image": {
-                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
-                "alt": "Just some placeholder pic."
-            },
-            "title": "The First Block Title",
-            "description": "This is a great description..."
-        },
-        {
-            "image": {
-                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
-                "alt": "Just some placeholder pic."
-            },
-            "title": "Second Block Title",
-            "description": "This is another awesome description..."
-        },
-        {
-            "image": {
-                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
-                "alt": "Just some placeholder pic."
-            },
-            "title": "Another Block Title",
-            "description": "Description will go hurrr..."
-        },
-        {
-            "image": {
-                "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
-                "alt": "Just some placeholder pic."
-            },
-            "title": "Last Block Title",
-            "description": "Just another dumb description..."
+    "craft": {
+        "entries": {
+            "section": {
+                "news": [
+                    {
+                        "url": "#",
+                        "title": "The First Block Title",
+                        "description": "This is a great description...",
+                        "image": {
+                            "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
+                            "alt": "Just some placeholder pic."
+                        }
+                    },
+                    {
+                        "url": "#",
+                        "title": "Second Block Title",
+                        "description": "This is another awesome description...",
+                        "image": {
+                            "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
+                            "alt": "Just some placeholder pic."
+                        }
+                    },
+                    {
+                        "url": "#",
+                        "title": "Another Block Title",
+                        "description": "Description will go hurrr...",
+                        "image": {
+                            "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
+                            "alt": "Just some placeholder pic."
+                        }
+                    },
+                    {
+                        "url": "#",
+                        "title": "Last Block Title",
+                        "description": "Just another dumb description...",
+                        "image": {
+                            "src": "http://placeholder.pics/svg/275/cccccc/e24307-cccccc",
+                            "alt": "Just some placeholder pic."
+                        }
+                    }
+                ]
+            }
         }
-    ]
+    }
 }

@@ -6,7 +6,8 @@
     <div class="section section--blocks">
         <div class="container">
             <div class="g g-center g-s-2 g-m-3 g-l-4">
-                {% for block in blocks %}
+                {% set entries = craft.entries.section.news %}
+                {% for entry in entries %}
                     <div class="gi">
                         {% include '../partials/blocks/block.twig' %}
                     </div>

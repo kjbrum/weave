@@ -1,8 +1,14 @@
 <div class="block">
-    {% if block.image %}
-        <img src="{{ block.image.src }}" alt="{{ block.image.alt }}">
+    {% if entry.image %}
+        <a href="{{ entry.url }}">
+            <img src="{{ entry.image.src }}" alt="{{ entry.image.alt }}">
+        </a>
     {% endif %}
 
-    <div class="block__title">{{ block.title }}</div>
-    <div class="block__description">{{ block.description }}</div>
+    <div class="block__title">{{ entry.title }}</div>
+    <div class="block__description">{{ entry.description }}</div>
+
+    <div class="block__action">
+        <a href="{{ entry.url }}">Read More</a>
+    </div>
 </div>
