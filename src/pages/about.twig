@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% include '../partials/base/head.twig' %}
+{% extends '../partials/general/layout.twig' %}
 
-    <body>
-        <!-- Navigation -->
-        {% include '../partials/general/nav.twig' %}
+{% block content %}
 
-        <!-- Hero -->
-        {% include '../partials/sections/section-hero.twig' %}
-
-        <!-- Content -->
-        <div class="section section--blocks">
-            <div class="container">
-                <div class="g g-center g-s-2 g-m-3 g-l-4">
-                    {% for block in blocks %}
-                        <div class="gi">
-                            {% include '../partials/blocks/block.twig' %}
-                        </div>
-                    {% endfor %}
-                </div>
+    <!-- Blocks -->
+    <div class="section section--blocks">
+        <div class="container">
+            <div class="g g-center g-s-2 g-m-3 g-l-4">
+                {% for block in blocks %}
+                    <div class="gi">
+                        {% include '../partials/blocks/block.twig' %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
 
-        <!-- Footer -->
-        {% include '../partials/general/footer.twig' %}
-
-        <!-- JavaScript -->
-        <script src="./js/main.min.js"></script>
-    </body>
-</html>
+{% endblock %}

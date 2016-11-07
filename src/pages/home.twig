@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% include '../partials/base/head.twig' %}
+{% extends '../partials/general/layout.twig' %}
 
-    <body>
-        <!-- Navigation -->
-        {% include '../partials/general/nav.twig' %}
-
-        <!-- Hero -->
-        {% include '../partials/sections/section-hero.twig' %}
-
-        <!-- Footer -->
-        {% include '../partials/general/footer.twig' %}
-
-        <!-- JavaScript -->
-        <script src="./js/main.min.js"></script>
-    </body>
-</html>
+{% block content %}
+    <!-- content here -->
+{% endblock %}

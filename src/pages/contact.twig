@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% include '../partials/base/head.twig' %}
+{% extends '../partials/general/layout.twig' %}
 
-    <body>
-        <!-- Navigation -->
-        {% include '../partials/general/nav.twig' %}
+{% block content %}
 
-        <!-- Hero -->
-        {% include '../partials/sections/section-hero.twig' %}
-
-        <!-- Locations -->
-        <div class="section section--locations">
-            <div class="container">
-                <h3>Locations</h3>
-                {% include '../partials/general/locations.twig' %}
-            </div>
+    <!-- Locations -->
+    <div class="section section--locations">
+        <div class="container">
+            <h3>Locations</h3>
+            {% include '../partials/general/locations.twig' %}
         </div>
+    </div>
 
-        <!-- Footer -->
-        {% include '../partials/general/footer.twig' %}
-
-        <!-- JavaScript -->
-        <script src="./js/main.min.js"></script>
-    </body>
-</html>
+{% endblock %}
