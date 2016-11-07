@@ -1,3 +1,5 @@
+'use strict';
+
 // Modules
 const fs = require('fs');
 const extend = require('util')._extend;
@@ -22,7 +24,7 @@ var mergeJSON = (file1, file2) => {
 }
 
 // Compile our pages using Twig
-var execute = (item) => {
+var compileTwig = (item) => {
     var page = item.split('.')[0];
     var filename = page;
 
@@ -43,11 +45,11 @@ var execute = (item) => {
 };
 
 
-// // ----------------------------------------------- //
+// ----------------------------------------------- //
 
 
 // Loop through and compile all the pages
 fs.readdir(__dirname + '/' + srcPagesDir, (err, files) => {
     if (err) throw err;
-    files.map(execute);
+    files.map(compileTwig);
 });
