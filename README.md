@@ -46,11 +46,6 @@
 - Any files in the `src/pages` folder should be new site pages. They will be compiled to `dist/<filename>.html` to be accessible as static pages.
 - Twig `includes` will need to be passed the relative path to the partial.
 
-## Changelog
-
-- v0.1.0
-    - Initial release
-
 
 ## License
 
