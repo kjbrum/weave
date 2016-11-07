@@ -48,6 +48,12 @@
 - Twig `includes` will need to be passed the relative path to the partial.
 
 
+## To-do
+
+- Create a "migrate.js" script for converting the prototype into a Craft project
+- Integrate `scss/components` that have been used in past projects for reusability
+
+
 ## License
 
 Copyright &copy; [Kyle Brumm](http://kylebrumm.com). SBX Proto is free to use on whatever and may be redistributed under the terms specified in the [license](LICENSE.md).
