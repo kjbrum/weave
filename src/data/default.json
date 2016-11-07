@@ -4,11 +4,25 @@
     "description": "Just the default description",
     "locations": ["Des Moines, IA", "Cedar Rapids, IA", "Iowa City, IA"],
     "craft": {
+        "categories": [
+            {
+                "url": "news/category1.html",
+                "title": "Category1"
+            },
+            {
+                "url": "news/second-category.html",
+                "title": "Second Category"
+            },
+            {
+                "url": "news/another-cat.html",
+                "title": "Another Cat"
+            }
+        ],
         "entries": {
             "section": {
                 "news": [
                     {
-                        "url": "#",
+                        "url": "news/the-first-block-title",
                         "title": "The First Block Title",
                         "description": "This is a great description...",
                         "image": {
@@ -17,7 +31,7 @@
                         }
                     },
                     {
-                        "url": "#",
+                        "url": "news/second-block-title.html",
                         "title": "Second Block Title",
                         "description": "This is another awesome description...",
                         "image": {
@@ -26,7 +40,7 @@
                         }
                     },
                     {
-                        "url": "#",
+                        "url": "news/another-block-title.html",
                         "title": "Another Block Title",
                         "description": "Description will go hurrr...",
                         "image": {
@@ -35,7 +49,7 @@
                         }
                     },
                     {
-                        "url": "#",
+                        "url": "news/last-block-title.html",
                         "title": "Last Block Title",
                         "description": "Just another dumb description...",
                         "image": {
