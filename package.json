@@ -13,7 +13,7 @@
     "dev": "parallelshell 'npm run build' 'npm run watch' 'npm run browsersync'",
     "img:build": "imagemin src/img/* -o dist/img",
     "img:watch": "watch 'npm run img:build' src/img",
-    "twig:build": "node twig-build.js",
+    "twig:build": "node index.js",
     "twig:watch": "watch 'npm run twig:build' src/pages src/partials src/data",
     "js:build": "npm run js:head && npm run js:main",
     "js:head": "uglifyjs src/js/head/*.js -o dist/js/head.min.js",
