@@ -34,11 +34,14 @@ var compileTwig = (item) => {
         filename = 'index';
     }
 
+    // Merge our data files
     var data = mergeJSON(srcDataDir + 'default.json', srcDataDir + page + '.json');
 
+    // Compile the Twig files
     Twig.renderFile(srcPagesDir + page + '.twig', data, (err, html) => {
         var prettyHTML = beautify.html(html, { indent_size: 4 });
 
+        // Create the new compiled HTML file
         fs.writeFile(distDir + filename + '.html', prettyHTML, (err) => {
             if (err) throw err;
         });
