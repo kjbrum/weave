@@ -4,22 +4,22 @@
 // Grid wrapper
 .container {
     margin: 0 auto;
-    padding: 1rem;
+    padding: $grid-gutter;
     width: 100%;
     max-width: $max-width;
 
     @media (min-width: $bp-m) {
-        padding: 1rem 2rem;
+        padding: $grid-gutter $grid-gutter*2;
     }
 
     @media (min-width: $bp-l) {
-        padding: 1rem;
+        padding: $grid-gutter;
     }
 }
 
 // Grid container
 .#{$grid-container-prefix} {
-    margin: 0 -1rem;
+    margin: 0 -$grid-gutter;
     zoom: 1;
 
     &:before,
@@ -37,7 +37,7 @@
 .#{$grid-item-prefix} {
     position: relative;
     float: left;
-    padding: 1rem;
+    padding: $grid-gutter;
     width: 100%;
     vertical-align: top;
 }

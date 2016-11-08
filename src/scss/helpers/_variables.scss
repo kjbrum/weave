@@ -78,9 +78,10 @@ $font-mono: $consolas;
 // ------------------------
 $min-width: 20rem;
 $max-width: 75rem;
+
 $num-columns: 12;
 $grid-width: $max-width;
-
+$grid-gutter: 1rem;
 $grid-container-prefix: 'g';
 $grid-item-prefix: 'gi';
 
