@@ -2,7 +2,7 @@
 
 // Modules
 const fs = require('fs');
-var glob = require('glob');
+const glob = require('glob');
 const extend = require('util')._extend;
 const Twig = require('twig');
 const beautify = require('js-beautify');
