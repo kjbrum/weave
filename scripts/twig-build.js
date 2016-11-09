@@ -25,7 +25,7 @@ var mergeJSON = (file1, file2) => {
 }
 
 // Compile our pages using Twig
-var compileTwig = (item) => {
+var compileTwigTemplate = (item) => {
     var page = item.split('.')[0];
     var filename = page;
 
@@ -55,5 +55,5 @@ var compileTwig = (item) => {
 // Loop through and compile all the pages
 fs.readdir(srcPagesDir, (err, files) => {
     if (err) throw err;
-    files.map(compileTwig);
+    files.map(compileTwigTemplate);
 });
