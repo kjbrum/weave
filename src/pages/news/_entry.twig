@@ -5,14 +5,7 @@
     <!-- Blocks -->
     <div class="section section--blocks">
         <div class="container">
-            {% set categories = craft.categories %}
-            <ul class="list--inline">
-                {% for category in categories %}
-                    <li><a href="{{ category.url }}">{{ category.title }}</a></li>
-                {% endfor %}
-            </ul>
-
-            <div class="row row-center row-s-2 row-m-3 row-l-4">
+            <div class="row">
                 {% set entry = craft.entries.section.news|first %}
                 <div class="col">
                     {% include '../../partials/blocks/block.twig' %}

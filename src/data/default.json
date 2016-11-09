@@ -6,15 +6,15 @@
     "craft": {
         "categories": [
             {
-                "url": "news/category1.html",
+                "url": "#",
                 "title": "Category1"
             },
             {
-                "url": "news/second-category.html",
+                "url": "#",
                 "title": "Second Category"
             },
             {
-                "url": "news/another-cat.html",
+                "url": "#",
                 "title": "Another Cat"
             }
         ],
@@ -22,7 +22,7 @@
             "section": {
                 "news": [
                     {
-                        "url": "news/the-first-block-title",
+                        "url": "/news/_entry.html",
                         "title": "The First Block Title",
                         "description": "This is a great description...",
                         "image": {
@@ -31,7 +31,7 @@
                         }
                     },
                     {
-                        "url": "news/second-block-title.html",
+                        "url": "/news/_entry.html",
                         "title": "Second Block Title",
                         "description": "This is another awesome description...",
                         "image": {
@@ -40,7 +40,7 @@
                         }
                     },
                     {
-                        "url": "news/another-block-title.html",
+                        "url": "/news/_entry.html",
                         "title": "Another Block Title",
                         "description": "Description will go hurrr...",
                         "image": {
@@ -49,7 +49,7 @@
                         }
                     },
                     {
-                        "url": "news/last-block-title.html",
+                        "url": "/news/_entry.html",
                         "title": "Last Block Title",
                         "description": "Just another dumb description...",
                         "image": {
