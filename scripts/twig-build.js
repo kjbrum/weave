@@ -55,7 +55,6 @@ var compileTwigTemplate = (item) => {
         fs.mkdir(newDistDir);
     }
 
-
     // Compile the Twig files
     Twig.renderFile(item, data, (err, html) => {
         var prettyHTML = beautify.html(html, { indent_size: 4 });
@@ -67,11 +66,7 @@ var compileTwigTemplate = (item) => {
     });
 };
 
-var traverseDir = (directory) => {
-    glob(directory + '**/*.twig', (err, files) => {
-        files.map(compileTwigTemplate);
-    });
-}
-
 // Loop through and compile all the pages
-traverseDir(srcPagesDir);
+glob(srcPagesDir + '**/*.twig', (err, files) => {
+    files.map(compileTwigTemplate);
+});
