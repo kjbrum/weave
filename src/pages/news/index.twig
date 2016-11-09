@@ -1,4 +1,4 @@
-{% extends '../partials/general/_layout.twig' %}
+{% extends '../../partials/general/_layout.twig' %}
 
 {% block content %}
 
@@ -12,11 +12,11 @@
                 {% endfor %}
             </ul>
 
-            <div class="g g-center g-s-2 g-m-3 g-l-4">
+            <div class="row row-center row-s-2 row-m-3 row-l-4">
                 {% set entries = craft.entries.section.news %}
                 {% for entry in entries %}
-                    <div class="gi">
-                        {% include '../partials/blocks/block.twig' %}
+                    <div class="col">
+                        {% include '../../partials/blocks/block.twig' %}
                     </div>
                 {% endfor %}
             </div>

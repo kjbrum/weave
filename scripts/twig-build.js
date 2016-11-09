@@ -2,6 +2,7 @@
 
 // Modules
 const fs = require('fs');
+var glob = require('glob');
 const extend = require('util')._extend;
 const Twig = require('twig');
 const beautify = require('js-beautify');
@@ -26,34 +27,51 @@ var mergeJSON = (file1, file2) => {
 
 // Compile our pages using Twig
 var compileTwigTemplate = (item) => {
-    var page = item.split('.')[0];
+    var path = item.substring(0, item.lastIndexOf('/') + 1);
+    var filename = item.substring(item.lastIndexOf('/') + 1);
+    var page = filename.split('.')[0];
     var filename = page;
+    var newDistDir = path.replace(srcPagesDir, distDir);
 
     // Rename the home file to index
     if (page == 'home') {
         filename = 'index';
     }
 
-    // Merge our data files
-    var data = mergeJSON(srcDataDir + 'default.json', srcDataDir + page + '.json');
+    // Merge our data files, if needed
+    var data = {};
+    var dataFile = srcDataDir + page + '.json';
+
+    // TODO: Preface data files that are in folder
+
+    if (fs.existsSync(dataFile)) {
+        data = mergeJSON(srcDataDir + 'default.json', dataFile);
+    } else {
+        data = JSON.parse(fs.readFileSync(srcDataDir + 'default.json', 'utf8'));
+    }
+
+    // Create the directory structure
+    if (!fs.existsSync(newDistDir)) {
+        fs.mkdir(newDistDir);
+    }
+
 
     // Compile the Twig files
-    Twig.renderFile(srcPagesDir + page + '.twig', data, (err, html) => {
+    Twig.renderFile(item, data, (err, html) => {
         var prettyHTML = beautify.html(html, { indent_size: 4 });
 
         // Create the new compiled HTML file
-        fs.writeFile(distDir + filename + '.html', prettyHTML, (err) => {
+        fs.writeFile(newDistDir + filename + '.html', prettyHTML, (err) => {
             if (err) throw err;
         });
     });
 };
 
-
-// ----------------------------------------------- //
-
+var traverseDir = (directory) => {
+    glob(directory + '**/*.twig', (err, files) => {
+        files.map(compileTwigTemplate);
+    });
+}
 
 // Loop through and compile all the pages
-fs.readdir(srcPagesDir, (err, files) => {
-    if (err) throw err;
-    files.map(compileTwigTemplate);
-});
+traverseDir(srcPagesDir);

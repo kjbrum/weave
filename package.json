@@ -36,6 +36,7 @@
   "devDependencies": {
     "autoprefixer": "latest",
     "critical": "latest",
+    "glob": "^7.1.1",
     "imagemin": "latest",
     "imagemin-gifsicle": "latest",
     "imagemin-jpegtran": "latest",
