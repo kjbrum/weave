@@ -1,6 +1,34 @@
 // Mixins
 // ------------------------
 
+// Breakpoints
+// ------------------------
+@mixin bp($break, $viewport1: null) {
+    // Preset breakpoint
+    @if not $viewport1 {
+        @if map-has-key($bp-media-queries, $break) {
+            @media only screen and #{map-get($bp-media-queries, $break)} { @content; }
+        }
+        @else {
+            @warn "Couldn't find a breakpoint named #{$break}.";
+        }
+    }
+    @else {
+        // min-width breakpoint
+        @if $break == min {
+            @media screen and (min-width: $viewport1) { @content; }
+        }
+        // max-width breakpoint
+        @else if $break == max {
+            @media screen and (max-width: $viewport1) { @content; }
+        }
+        // min-width & max-width breakpoint
+        @else {
+            @media screen and (min-width: $break) and (max-width: $viewport1) { @content; }
+        }
+    }
+}
+
 // Single side border radius
 @mixin border-top-radius($radius: 3px) {
     border-top-right-radius: $radius;

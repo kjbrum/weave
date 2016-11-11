@@ -7,14 +7,14 @@ $primary: #e24307;
 $secondary: #53565A;
 $colors: (
     primary: (
-        light: mix(white, $primary, 20%),
+        light: tint($primary, 20%),
         normal: $primary,
-        dark: mix(black, $primary, 20%)
+        dark: shade($primary, 20%)
     ),
     secondary: (
-        light: mix(white, $secondary, 20%),
+        light: tint($secondary, 20%),
         normal: $secondary,
-        dark: mix(black, $secondary, 20%)
+        dark: shade($secondary, 20%)
     ),
     gray: (
         ultralight: #efefef,
@@ -85,6 +85,7 @@ $grid-gutter: 1rem;
 $grid-container-prefix: 'row';
 $grid-item-prefix: 'col';
 
+// Breakpoint map
 $breakpoints: (
     xxs: (
         min: rem-calc(0),
@@ -104,14 +105,15 @@ $breakpoints: (
     ),
     l: (
         min: rem-calc(1025),
-        max: rem-calc(1440)
+        max: $max-width
     ),
     xl: (
-        min: $max-width,
+        min: $max-width + rem-calc(1),
         max: rem-calc(1920)
     )
 );
 
+// Breakpoint variables
 $bp-xxs: map-get(map-get($breakpoints, xxs), max);
 $bp-xxs-min: map-get(map-get($breakpoints, xxs), min);
 $bp-xxs-max: map-get(map-get($breakpoints, xxs), max);
@@ -130,6 +132,28 @@ $bp-l-max: map-get(map-get($breakpoints, l), max);
 $bp-xl: map-get(map-get($breakpoints, xl), max);
 $bp-xl-min: map-get(map-get($breakpoints, xl), min);
 $bp-xl-max: map-get(map-get($breakpoints, xl), max);
+
+// Media Queries
+$bp-media-queries: (
+    xl: "(min-width: #{$bp-xl-min})",
+    xl-only: "(min-width: #{$bp-xl-min}) and (max-width: #{$bp-xl-max})",
+    xl-max: "(max-width: #{$bp-xl-max})",
+    l: "(min-width: #{$bp-l-min})",
+    l-only: "(min-width: #{$bp-l-min}) and (max-width: #{$bp-l-max})",
+    l-max: "(max-width: #{$bp-l-max})",
+    m: "(min-width: #{$bp-m-min})",
+    m-only: "(min-width: #{$bp-m-min}) and (max-width: #{$bp-m-max})",
+    m-max: "(max-width: #{$bp-m-max})",
+    s: "(min-width: #{$bp-s-min})",
+    s-only: "(min-width: #{$bp-s-min}) and (max-width: #{$bp-s-max})",
+    s-max: "(max-width: #{$bp-s-max})",
+    xs: "(min-width: #{$bp-xs-min})",
+    xs-only: "(min-width: #{$bp-xs-min}) and (max-width: #{$bp-xs-max})",
+    xs-max: "(max-width: #{$bp-xs-max})",
+    xxs: "(min-width: #{$bp-xxs-min})",
+    xxs-only: "(min-width: #{$bp-xxs-min}) and (max-width: #{$bp-xxs-max})",
+    xxs-max: "(max-width: #{$bp-xxs-max})"
+);
 
 
 // Cubic-bezier timing functions
