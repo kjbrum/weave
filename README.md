@@ -68,7 +68,6 @@ __Include and Extends__
     ```
 
 
-
 ## To-do
 
 - Create a "migrate.js" script for converting the prototype into a Craft project
