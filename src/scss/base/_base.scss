@@ -6,11 +6,6 @@
     box-sizing: border-box;
 }
 
-::-moz-selection {
-    color: $secondary;
-    background: $primary;
-}
-
 ::selection {
     color: $secondary;
     background: $primary;
