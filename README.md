@@ -56,7 +56,7 @@ __Page Data__
 - This data file will be placed in the `src/data` folder with the same hierarchy and name as the page.
     `src/pages/news/_entry.twig` ==> `src/data/news/_entry.json`
 
-__Includes/Partials and Extends__
+__Include and Extends__
 
 - Twig includes will need to be passed the relative path to the partial you would like to include.
     ```
