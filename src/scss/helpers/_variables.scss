@@ -1,6 +1,10 @@
 // Variables
 // ------------------------
 
+// Enable debugging features
+$debug: true;
+
+
 // Colors
 // ------------------------
 $primary: #e24307;
@@ -135,24 +139,24 @@ $bp-xl-max: map-get(map-get($breakpoints, xl), max);
 
 // Media Queries
 $bp-media-queries: (
-    xl: "(min-width: #{$bp-xl-min})",
-    xl-only: "(min-width: #{$bp-xl-min}) and (max-width: #{$bp-xl-max})",
-    xl-max: "(max-width: #{$bp-xl-max})",
-    l: "(min-width: #{$bp-l-min})",
-    l-only: "(min-width: #{$bp-l-min}) and (max-width: #{$bp-l-max})",
-    l-max: "(max-width: #{$bp-l-max})",
-    m: "(min-width: #{$bp-m-min})",
-    m-only: "(min-width: #{$bp-m-min}) and (max-width: #{$bp-m-max})",
-    m-max: "(max-width: #{$bp-m-max})",
-    s: "(min-width: #{$bp-s-min})",
-    s-only: "(min-width: #{$bp-s-min}) and (max-width: #{$bp-s-max})",
-    s-max: "(max-width: #{$bp-s-max})",
-    xs: "(min-width: #{$bp-xs-min})",
-    xs-only: "(min-width: #{$bp-xs-min}) and (max-width: #{$bp-xs-max})",
-    xs-max: "(max-width: #{$bp-xs-max})",
-    xxs: "(min-width: #{$bp-xxs-min})",
+    xxs-max: "(max-width: #{$bp-xxs-max})",
     xxs-only: "(min-width: #{$bp-xxs-min}) and (max-width: #{$bp-xxs-max})",
-    xxs-max: "(max-width: #{$bp-xxs-max})"
+    xxs: "(min-width: #{$bp-xxs-min})",
+    xs-max: "(max-width: #{$bp-xs-max})",
+    xs-only: "(min-width: #{$bp-xs-min}) and (max-width: #{$bp-xs-max})",
+    xs: "(min-width: #{$bp-xs-min})",
+    s-max: "(max-width: #{$bp-s-max})",
+    s-only: "(min-width: #{$bp-s-min}) and (max-width: #{$bp-s-max})",
+    s: "(min-width: #{$bp-s-min})",
+    m-max: "(max-width: #{$bp-m-max})",
+    m-only: "(min-width: #{$bp-m-min}) and (max-width: #{$bp-m-max})",
+    m: "(min-width: #{$bp-m-min})",
+    l-max: "(max-width: #{$bp-l-max})",
+    l-only: "(min-width: #{$bp-l-min}) and (max-width: #{$bp-l-max})",
+    l: "(min-width: #{$bp-l-min})",
+    xl-max: "(max-width: #{$bp-xl-max})",
+    xl-only: "(min-width: #{$bp-xl-min}) and (max-width: #{$bp-xl-max})",
+    xl: "(min-width: #{$bp-xl-min})",
 );
 
 

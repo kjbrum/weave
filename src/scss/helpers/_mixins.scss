@@ -224,3 +224,26 @@
     margin: 0;
     padding: 0;
 }
+
+// Debugging
+// ------------------------
+
+// Breakpoints
+@mixin debug-breakpoints {
+    &:before {
+        @each $breakpoint, $query in $bp-media-queries {
+            @if str-index($breakpoint, '-') == null {
+                @include bp(#{$breakpoint}) {
+                    content: '#{$breakpoint}: #{map-get(map-get($breakpoints, $breakpoint), min)} to #{map-get(map-get($breakpoints, $breakpoint), max)}';
+                    @include fixed(null, null, 0, 0);
+                    padding: 0.5rem 1rem;
+                    background: $success;
+                    font-family: $font;
+                    font-size: 12px;
+                    color: $black;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
