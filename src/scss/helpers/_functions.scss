@@ -6,7 +6,7 @@
     @return $value / ($value * 0 + 1);
 }
 
-// Calculate a rem value from a px value
+// Calculate rems from a px value
 @function rem-calc($px, $base-val: 16) {
     @if not unitless($px) {
         $px: strip-units($px);
@@ -15,4 +15,43 @@
         $base-val: strip-units($base-val);
     }
     @return ($px / $base-val) * 1rem;
+}
+
+// Calculate ems from a px value
+@function em-calc($px, $base-val: 16) {
+    @if not unitless($px) {
+        $px: strip-units($px);
+    }
+    @if not unitless($base-val) {
+        $base-val: strip-units($base-val);
+    }
+    @return ($px / $base-val) * 1em;
+}
+
+// Mix white with another color
+@function tint($color, $percent: $mix-percent-default){
+    @return mix(white, $color, $percent);
+}
+
+// Mix black with another color
+@function shade($color, $percent: $mix-percent-default){
+    @return mix(black, $color, $percent);
+}
+
+// Create a random color
+@function random-color($min: 0, $max: 255, $alpha: 1) {
+    @if $min < 0 {
+        $min: -1;
+    } @else {
+        $min: $min - 1;
+    }
+    @if $max > 255 {
+        $max: 256;
+    } @else {
+        $max: $max + 1;
+    }
+    $red: random($max) + $min;
+    $green: random($max) + $min;
+    $blue: random($max) + $min;
+    @return rgba($red, $green, $blue, $alpha);
 }
