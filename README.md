@@ -74,7 +74,6 @@ __Include and Extends__
 - Integrate `scss/components` that have been used in past projects for reusability
 - Add additional mixins
     - Grid - `row(x)` and `col(x)`
-    - Breakpoints
     - Helpers
 
 
