@@ -1,6 +1,6 @@
 {
-    "about": true,
-    "slug": "about",
+    "news": true,
+    "slug": "news",
     "title": "SBX Proto | News",
     "description": "Read some Sandbox news."
 }

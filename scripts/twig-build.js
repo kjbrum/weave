@@ -32,6 +32,7 @@ var compileTwigTemplate = (item) => {
     var page = filename.split('.')[0];
     var filename = page;
     var newDistDir = path.replace(srcPagesDir, distDir);
+    var dataFile = path.replace(srcPagesDir, srcDataDir) + page + '.json'
 
     // Rename the home file to index
     if (page == 'home') {
@@ -40,10 +41,6 @@ var compileTwigTemplate = (item) => {
 
     // Merge our data files, if needed
     var data = {};
-    var dataFile = srcDataDir + page + '.json';
-
-    // TODO: Preface data files that are in folder
-
     if (fs.existsSync(dataFile)) {
         data = mergeJSON(srcDataDir + 'default.json', dataFile);
     } else {
