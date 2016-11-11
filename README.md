@@ -44,8 +44,29 @@
 
 ## Development Notes
 
-- Any files in the `src/pages` folder should be new site pages. They will be compiled to `dist/<filename>.html` to be accessible as static pages.
-- Twig `includes` will need to be passed the relative path to the partial.
+__New Pages__
+
+- New site pages should be placed in the `src/pages` folder with the a `.twig` extension.
+- These Twig files will be compiled to `dist/<path/to/file.html>` and will be accessible as static pages.
+
+__Page Data__
+
+- The `src/data/default.json` file can be used for supplying data to all pages.
+- Each page in the `src/pages` folder can have an accompanying JSON data file.
+- This data file will be placed in the `src/data` folder with the same hierarchy and name as the page.
+    `src/pages/news/_entry.twig` ==> `src/data/news/_entry.json`
+
+__Includes/Partials and Extends__
+
+- Twig includes will need to be passed the relative path to the partial you would like to include.
+    ```
+    {% extends '../partials/general/_layout.twig' %}
+
+    {% block content %}
+        {% include 'path/to/partial.twig' %}
+    {% endblock %}
+    ```
+
 
 
 ## To-do
