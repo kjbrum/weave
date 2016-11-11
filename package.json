@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run setup:build && npm run twig:build && npm run img:build && npm run js:build && npm run css:build",
     "clean": "rm -rf dist",
     "css:autoprefix": "postcss --use autoprefixer -r dist/css/*.css",
-    "css:build": "npm run css:compile && npm run css:critical && npm run css:autoprefix",
+    "css:build": "npm run css:compile && npm run css:autoprefix",
     "css:compile": "node-sass --source-map true --output-style compressed src/scss/style.scss dist/css/style.css",
     "css:critical": "rm -rf dist/css/critical.css && touch dist/css/critical.css && node scripts/critical-css.js",
     "css:watch": "watch 'npm run css:build' src/scss",

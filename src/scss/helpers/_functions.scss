@@ -50,9 +50,10 @@
     } @else {
         $max: $max + 1;
     }
-    $red: random($max) + $min;
-    $green: random($max) + $min;
-    $blue: random($max) + $min;
+    $range: $max - $min;
+    $red: random($range) + $min;
+    $green: random($range) + $min;
+    $blue: random($range) + $min;
     @return rgba($red, $green, $blue, $alpha);
 }
 
