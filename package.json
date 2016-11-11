@@ -11,7 +11,7 @@
     "css:compile": "node-sass --source-map true --output-style compressed src/scss/style.scss dist/css/style.css",
     "css:critical": "touch dist/css/critical.css && node scripts/critical-css.js",
     "css:watch": "watch 'npm run css:build' src/scss",
-    "dev": "parallelshell 'npm run build' 'npm run watch' 'npm run browsersync'",
+    "dev": "npm run build && parallelshell 'npm run watch' 'npm run browsersync'",
     "img:build": "node scripts/imagemin.js",
     "img:watch": "watch 'npm run img:build' src/img",
     "twig:build": "node scripts/twig-build.js",
