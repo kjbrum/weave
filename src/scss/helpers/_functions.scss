@@ -29,12 +29,12 @@
 }
 
 // Mix white with another color
-@function tint($color, $percent: $mix-percent-default){
+@function tint($color, $percent: 15%){
     @return mix(white, $color, $percent);
 }
 
 // Mix black with another color
-@function shade($color, $percent: $mix-percent-default){
+@function shade($color, $percent: 15%){
     @return mix(black, $color, $percent);
 }
 
