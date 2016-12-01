@@ -2,10 +2,14 @@
 // ------------------------
 ul,
 ol {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 
     li {
         margin-bottom: 0.5rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
     ol,
