@@ -16,51 +16,28 @@ input[type="button"] {
     font-family: $font;
     cursor: pointer;
     text-decoration: none;
-	background: $black;
-	border: 1px solid $black;
+	background: $primary;
+	border: 1px solid $primary;
     border-radius: 3px;
     transition: 0.3s ease-in-out;
 
 	&:hover,
 	&:focus {
 		color: $white;
-		background: $gray-ultradark;
-		border-color: $gray-ultradark;
+		background: $primary-light;
+		border-color: $primary-light;
 	}
 }
 
 // Outlined button
 .btn--outline {
-	color: $black;
+	color: $primary;
 	background: transparent !important;
 
 	&:hover,
 	&:focus {
-		color: $gray-ultradark;
-		border-color: $gray-ultradark;
-	}
-}
-
-// Primary color button
-.btn--primary {
-	background: $primary;
-	border-color: $primary;
-
-	&:hover,
-	&:focus {
-		background: $primary-light;
+		color: $primary-light;
 		border-color: $primary-light;
-	}
-
-	&.btn--outline {
-		color: $primary;
-		border-color: $primary;
-
-		&:hover,
-		&:focus {
-			color: $primary-light;
-			border-color: $primary-light;
-		}
 	}
 }
 
