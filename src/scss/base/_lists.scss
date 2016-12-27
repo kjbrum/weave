@@ -58,7 +58,7 @@ dl {
 .list--inline {
     list-style: none;
 
-    li {
+    > li {
         display: inline-block;
         margin-bottom: 0;
         padding: 0.5rem;
@@ -69,7 +69,7 @@ dl {
 .list--split {
     list-style: none;
 
-    li {
+    > li {
         display: block;
         float: left;
         width: 100%;
@@ -82,7 +82,7 @@ dl {
     @media (min-width: map-get(map-get($breakpoints, $breakpoint), min)) {
         @for $i from 2 through 6 {
             .list--split-#{$breakpoint}-#{$i} {
-                li {
+                > li {
                     width: percentage(1 / $i);
                     padding: 0 0.5rem;
 
