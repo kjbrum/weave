@@ -17,6 +17,11 @@
     }
 }
 
+// No padding grid wrapper
+.container-np {
+    padding: 0;
+}
+
 // Grid container
 .#{$grid-container-prefix} {
     margin: 0 (-$grid-gutter);
