@@ -6,8 +6,25 @@
     @return $value / ($value * 0 + 1);
 }
 
+// Calculate px from a rem/em value
+@function px-calc($rem, $base-val: 16) {
+    @if unit($rem) == px {
+        @return $rem;
+    }
+    @if not unitless($rem) {
+        $rem: strip-units($rem);
+    }
+    @if not unitless($base-val) {
+        $base-val: strip-units($base-val);
+    }
+    @return ($rem * $base-val) * 1px;
+}
+
 // Calculate rems from a px value
 @function rem-calc($px, $base-val: 16) {
+    @if unit($px) == rem {
+        @return $px;
+    }
     @if not unitless($px) {
         $px: strip-units($px);
     }
@@ -19,6 +36,9 @@
 
 // Calculate ems from a px value
 @function em-calc($px, $base-val: 16) {
+    @if unit($px) == em {
+        @return $px;
+    }
     @if not unitless($px) {
         $px: strip-units($px);
     }
