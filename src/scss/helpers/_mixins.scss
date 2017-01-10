@@ -49,7 +49,7 @@
 
 // Transforms
 @mixin transform-single($property, $value) {
-    transform: #{$property}unquote("(")#{$value}unquote(")");
+    transform: #{$property}#{unquote("(")}#{$value}#{unquote(")")};
 }
 @mixin rotate($deg) {
     @include transform-single(rotate, $deg);
