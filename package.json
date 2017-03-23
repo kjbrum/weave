@@ -1,9 +1,9 @@
 {
-  "name": "sbx-proto",
+  "name": "Weave",
   "version": "0.1.0",
-  "description": "Starter project for prototyping.",
+  "description": "Prototyping made easy.",
   "scripts": {
-    "browsersync": "browser-sync start --server 'dist' --files 'dist/**/*' --tunnel 'sbxproto'",
+    "browsersync": "browser-sync start --server 'dist' --files 'dist/**/*'",
     "build": "npm run clean && npm run setup:build && npm run twig:build && npm run img:build && npm run js:build && npm run css:build",
     "clean": "rm -rf dist",
     "css:autoprefix": "postcss --use autoprefixer -r dist/css/*.css",
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kjbrum/sbx-proto.git"
+    "url": "https://github.com/kjbrum/weave.git"
   },
   "author": "Kyle Brumm <kjbrumm@gmail.com> (http://kylebrumm.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kjbrum/sbx-proto/issues"
+    "url": "https://github.com/kjbrum/weave/issues"
   },
-  "homepage": "https://github.com/kjbrum/sbx-proto#readme",
+  "homepage": "https://github.com/kjbrum/weave#readme",
   "devDependencies": {
     "autoprefixer": "latest",
     "critical": "latest",

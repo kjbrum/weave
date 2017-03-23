@@ -1,6 +1,6 @@
-# SBX Proto
+# Weave
 
-> Starter project for prototyping.
+> Prototyping made easy.
 
 
 ## Features
@@ -20,7 +20,7 @@
 1. __Clone the project__
 
     ```
-    $ git clone git@github.com:kjbrum/sbx-proto.git <project-name>
+    $ git clone git@github.com:kjbrum/weave.git <project-name>
     ```
 
 1. __Install the dependencies__
@@ -68,15 +68,6 @@ __Include and Extends__
     ```
 
 
-## To-do
-
-- Create a "migrate.js" script for converting the prototype into a Craft project
-- Integrate `scss/components` that have been used in past projects for reusability
-- Add additional mixins
-    - Grid - `row(x)` and `col(x)`
-    - Helpers
-
-
 ## License
 
-Copyright &copy; [Kyle Brumm](http://kylebrumm.com). SBX Proto is free to use on whatever and may be redistributed under the terms specified in the [license](LICENSE.md).
+Copyright &copy; [Kyle Brumm](http://kylebrumm.com). Weave is free to use on whatever and may be redistributed under the terms specified in the [license](LICENSE.md).
