@@ -24,7 +24,7 @@ table {
 .table--hover {
     tbody {
         tr:hover {
-            background: $gray-ultralight;
+            background-color: $gray-ultralight;
         }
     }
 }
@@ -37,14 +37,14 @@ table {
 
     tbody {
         tr:nth-of-type(odd) {
-            background: $gray-ultralight;
+            background-color: $gray-ultralight;
         }
     }
 
     &.table--hover {
         tbody {
             tr:hover {
-                background: $gray-light;
+                background-color: $gray-light;
             }
         }
     }

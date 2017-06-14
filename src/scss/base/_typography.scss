@@ -19,6 +19,8 @@ small {
 
 p {
     margin-bottom: 1rem;
+    @include r-font-size(0.8rem, 1rem);
+    font-weight: 300;
 
     &:last-of-type {
         margin-bottom: 0;
@@ -26,66 +28,49 @@ p {
 }
 
 a {
-    color: $secondary;
-    text-decoration: underline;
+    color: $primary;
+    text-decoration: none;
     transition: color 0.3s ease-in-out;
 
     &:hover {
-        color: $secondary-light;
+        color: $primary-light;
     }
 }
 
 
 // Headings
 // ------------------------
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
     margin: 0 0 0.5rem 0;
-    font-family: $font-secondary;
-    font-weight: 300;
+    font-family: $font;
+    color: $black;
     line-height: 1.2;
-    letter-spacing: 2px;
 }
 
-h1,
-h2,
-h3 {
-    color: $primary;
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    font-weight: 400;
 }
 
-h4,
-h5,
-h6 {
-    color: $gray-ultradark;
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-weight: 600;
 }
 
-h1 {
-    font-size: 3.5rem;
-}
+h1, .h1 { @include r-font-size(3rem, 3.5rem); }
+h2, .h2 { @include r-font-size(2rem, 2.5rem); }
+h3, .h3 { @include r-font-size(1.5rem, 2rem); }
+h4, .h4 { @include r-font-size(1.2rem, 1.5rem); }
+h5, .h5 { @include r-font-size(1rem, 1.25rem); }
+h6, .h6 { font-size: 1rem; }
 
-h2 {
-    font-size: 2.5rem;
-}
-
-h3 {
-    font-size: 2.0rem;
-}
-
-h4 {
-    font-size: 1.5rem;
-}
-
-h5 {
-    font-size: 1.25rem;
-}
-
-h6 {
-    font-size: 1rem;
-}
 
 // Blockquotes
 // ------------------------
@@ -112,7 +97,7 @@ blockquote {
         &:before,
         &:after {
             position: absolute;
-            font-family: $font-secondary;
+            font-family: $font;
             font-size: 3rem;
             line-height: 1;
         }

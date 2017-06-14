@@ -3,18 +3,14 @@
 
 // Grid wrapper
 .container {
-    margin: 0 auto;
-    padding: $grid-gutter;
     width: 100%;
     max-width: $max-width;
+    margin: 0 auto;
+    padding: $grid-gutter;
     @include clearfix;
 
-    @media (min-width: $bp-m) {
+    @include bp(l-only) {
         padding: $grid-gutter $grid-gutter*2;
-    }
-
-    @media (min-width: $bp-l) {
-        padding: $grid-gutter;
     }
 }
 
@@ -27,6 +23,10 @@
 .#{$grid-container-prefix} {
     margin: 0 (-$grid-gutter);
     zoom: 1;
+
+    @include bp(l-only) {
+        margin: 0 (-$grid-gutter*2);
+    }
 
     &:before,
     &:after {
@@ -42,9 +42,10 @@
 // Grid item
 .#{$grid-item-prefix} {
     position: relative;
-    float: left;
-    padding: $grid-gutter;
+    display: block;
     width: 100%;
+    padding: $grid-gutter;
+    float: left;
     vertical-align: top;
 }
 
@@ -66,49 +67,64 @@
     font-size: 0;
 
     > .#{$grid-item-prefix} {
-        font-size: 1rem;
-        float: none !important;
         display: inline-block;
+        float: none !important;
+        font-size: 1rem;
         text-align: left;
     }
 
     [class*='#{$grid-item-prefix}-fixed'] {
         margin: 0 auto !important;
     }
+
+    &.#{$grid-container-prefix}-flex {
+        justify-content: center;
+    }
 }
 
 // Flexbox grid
-.flexbox .#{$grid-container-prefix}-flex {
-    display: flex;
-    flex-flow: row wrap;
-
-    &.#{$grid-container-prefix}-center {
-        justify-content: center;
-    }
-
-    > .#{$grid-item-prefix} {
+.flexbox {
+    .#{$grid-container-prefix}-flex {
         display: flex;
+        flex: 0 1 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
 
-        > .block {
-            display: flex;
-            flex-flow: column nowrap;
-            width: 100%;
+        &:before,
+        &:after {
+            content: none;
         }
-    }
 
-    > .#{$grid-item-prefix}-sticky .block > :last-child {
-        margin-top: auto;
+        > .#{$grid-item-prefix} {
+            display: flex;
+            flex: 0 0 auto;
+            flex-direction: column;
+
+            > .block {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+        }
+
+        > .#{$grid-item-prefix}-sticky .block > :last-child {
+            margin-top: auto;
+        }
+
+        &.#{$grid-container-prefix}-v-center {
+            align-items: center;
+        }
     }
 }
 
 // Reversed grid
 .#{$grid-container-prefix}-reverse {
-    &.g-flex {
-        flex-flow: row-reverse wrap;
-    }
-
     > .#{$grid-item-prefix} {
         float: right;
+    }
+
+    &.#{$grid-container-prefix}-flex {
+        flex-direction: reverse;
     }
 }
 
@@ -119,6 +135,7 @@
         @for $i from 1 through $num-columns {
             $bp-width: percentage($i/$num-columns);
             $fixed-width: ($grid-width/$num-columns);
+            $half-col: percentage(1/$num-columns) / 2;
 
             // Add block grids for up to $num-columns items
             .#{$grid-container-prefix}-#{$breakpoint}-#{$i} {
@@ -131,6 +148,25 @@
 
                     &:nth-of-type(#{$i}n+1) {
                         clear: both;
+                    }
+                }
+            }
+
+            // Add flexbox support
+            .flexbox {
+                .#{$grid-container-prefix}-flex {
+                    // Add block grids for up to $num-columns items
+                    &.#{$grid-container-prefix}-#{$breakpoint}-#{$i} {
+                        > .#{$grid-item-prefix} {
+                            max-width: percentage(1/$i);
+                            flex-basis: percentage(1/$i);
+                        }
+                    }
+
+                    // Add grid item
+                    .#{$grid-item-prefix}-#{$breakpoint}-#{$i} {
+                        max-width: $bp-width;
+                        flex-basis: $bp-width;
                     }
                 }
             }
@@ -155,14 +191,29 @@
                 margin-left: $bp-width;
             }
 
+            // Add grid item offset (w/half column)
+            .#{$grid-item-prefix}-offset-#{$breakpoint}-#{$i}-half {
+                margin-left: $bp-width + $half-col;
+            }
+
             // Add grid item push
             .#{$grid-item-prefix}-push-#{$breakpoint}-#{$i} {
                 left: $bp-width;
             }
 
+            // Add grid item push (w/half column)
+            .#{$grid-item-prefix}-push-#{$breakpoint}-#{$i}-half {
+                left: $bp-width + $half-col;
+            }
+
             // Add grid item pull
             .#{$grid-item-prefix}-pull-#{$breakpoint}-#{$i} {
                 right: $bp-width;
+            }
+
+            // Add grid item pull (w/half column)
+            .#{$grid-item-prefix}-pull-#{$breakpoint}-#{$i}-half {
+                right: $bp-width + $half-col;
             }
 
             // Add grid item fill
@@ -184,8 +235,8 @@
 
             [class*='#{$grid-item-prefix}-fixed-right'] {
                 & + .#{$grid-item-prefix}-fill-#{$breakpoint}-#{$i} {
-                    margin-left: 0;
                     margin-right: $fixed-width * ($num-columns - $i);
+                    margin-left: 0;
                 }
             }
 
@@ -193,6 +244,17 @@
             @if $i < 6 {
                 $bp-fifth-width: percentage($i/5);
                 $fifth-fixed-width: ($grid-width/5);
+                $fifth-half-col: percentage(1/5) / 2;
+
+                // Add flexbox support for fifths grid item
+                .flexbox {
+                    .#{$grid-container-prefix}-flex {
+                        &.#{$grid-item-prefix}-#{$breakpoint}-#{$i}-5 {
+                            flex-basis: $bp-fifth-width;
+                            max-width: $bp-fifth-width;
+                        }
+                    }
+                }
 
                 // Add fifths grid item
                 .#{$grid-item-prefix}-#{$breakpoint}-#{$i}-5 {
@@ -204,14 +266,29 @@
                     margin-left: $bp-fifth-width;
                 }
 
+                // Add fifths grid item offset (w/half column)
+                .#{$grid-item-prefix}-offset-#{$breakpoint}-#{$i}-5-half {
+                    margin-left: $bp-fifth-width + $fifth-half-col;
+                }
+
                 // Add fifths grid item push
                 .#{$grid-item-prefix}-push-#{$breakpoint}-#{$i}-5 {
                     left: $bp-fifth-width;
                 }
 
+                // Add fifths grid item push (w/half column)
+                .#{$grid-item-prefix}-push-#{$breakpoint}-#{$i}-5-half {
+                    left: $bp-fifth-width + $fifth-half-col;
+                }
+
                 // Add fifths grid item pull
                 .#{$grid-item-prefix}-pull-#{$breakpoint}-#{$i}-5 {
                     right: $bp-fifth-width;
+                }
+
+                // Add fifths grid item pull (w/half column)
+                .#{$grid-item-prefix}-pull-#{$breakpoint}-#{$i}-5-half {
+                    right: $bp-fifth-width + $fifth-half-col;
                 }
 
                 // Add fifths grid item fill
@@ -233,8 +310,8 @@
 
                 [class*='#{$grid-item-prefix}-fixed-right'] {
                     & + .#{$grid-item-prefix}-fill-#{$breakpoint}-#{$i}-5 {
-                        margin-left: 0;
                         margin-right: $fifth-fixed-width * (5 - $i);
+                        margin-left: 0;
                     }
                 }
             }

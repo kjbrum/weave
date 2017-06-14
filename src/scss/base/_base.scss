@@ -8,7 +8,7 @@
 
 ::selection {
     color: $secondary;
-    background: $primary;
+    background-color: $primary;
 }
 
 html {
@@ -18,8 +18,9 @@ html {
 }
 
 body {
-	font: 100%/1.5 $font;
-	-webkit-text-size-adjust: 100%;
-	color: $black;
+    overflow-x: hidden;
     min-width: $min-width;
+    font: 100%/1.5 $font;
+    -webkit-text-size-adjust: 100%;
+    color: $black;
 }
