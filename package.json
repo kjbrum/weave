@@ -41,6 +41,7 @@
     "imagemin-gifsicle": "latest",
     "imagemin-jpegtran": "latest",
     "imagemin-pngquant": "latest",
+    "imagemin-svgo": "^5.2.2",
     "js-beautify": "latest",
     "node-sass": "latest",
     "parallelshell": "latest",
