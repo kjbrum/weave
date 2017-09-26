@@ -11,7 +11,7 @@ const srcImgDir = 'src/img/';
 const distImgDir = 'dist/img/';
 
 // Optimize the images
-imagemin([srcImgDir + '*.{jpg,jpeg,gif,png}'], distImgDir, {
+imagemin([srcImgDir + '*.{jpg,jpeg,gif,png,svg}'], distImgDir, {
     plugins: [
         imageminJpegtran(),
         imageminGifsicle(),
