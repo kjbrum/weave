@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Prototyping made easy.",
   "scripts": {
-    "browsersync": "browser-sync start --server 'dist' --files 'dist/**/*'",
+    "browsersync": "browser-sync start --server 'dist' --files 'dist/**/*' --reload-delay 2000",
     "build": "npm run clean && npm run setup:build && npm run twig:build && npm run img:build && npm run js:build && npm run css:build",
     "clean": "rm -rf dist",
     "css:autoprefix": "postcss --use autoprefixer -r dist/css/*.css",
