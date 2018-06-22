@@ -117,22 +117,46 @@
 // Responsive Typography
 // "min-font-size-px" + ("max-font-size" - "min-font-size") * (100vw - "min-screen-size-px") / ("max-screen-size" - "min-screen-size")
 @mixin r-font-size($min-font, $max-font, $min-screen: $min-width, $max-screen: $max-width) {
+    $responsive-calc: calc(#{px-calc($min-font)} + (#{strip-units(px-calc($max-font))} - #{strip-units(px-calc($min-font))}) * (100vw - #{px-calc($min-screen)}) / (#{strip-units(px-calc($max-screen))} - #{strip-units(px-calc($min-screen))}));
     font-size: rem-calc($min-font);
 
-    @include bp($min-screen, $max-screen) {
-        font-size: (rem-calc($min-font) + rem-calc($max-font)) / 2;
-        font-size: calc(#{px-calc($min-font)} + (#{strip-units(px-calc($max-font))} - #{strip-units(px-calc($min-font))}) * (100vw - #{px-calc($min-screen)}) / (#{strip-units(px-calc($max-screen))} - #{strip-units(px-calc($min-screen))}));
+    // Min width
+    @include bp(min, rem-calc($min-screen)) {
+        font-size: $responsive-calc;
     }
 
+    // Halfway point
+    @include bp(min, ((rem-calc($max-screen) + rem-calc($min-screen)) / 2)) {
+        font-size: (rem-calc($max-font) + rem-calc($min-font)) / 2;
+        font-size: $responsive-calc;
+    }
+
+    // Max width
     @include bp(min, rem-calc($max-screen)) {
         font-size: rem-calc($max-font);
     }
 }
 
+// Responsive property
+@mixin r-property($property, $min-property, $mid-property, $max-property, $min-screen: $min-width, $max-screen: $max-width) {
+    // Min width
+    #{$property}: $min-property;
+
+    // Mid width
+    @include bp(min, rem-calc($min-screen)) {
+        #{$property}: $mid-property;
+    }
+
+    // Max width
+    @include bp(min, rem-calc($max-screen)) {
+        #{$property}: $max-property;
+    }
+}
+
 // Placeholder styles
-@mixin placeholder($property, $value) {
+@mixin placeholder {
     &::placeholder {
-        #{$property}: $value;
+        @content;
     }
 }
 
@@ -223,8 +247,7 @@
 
 // Cover everything
 @mixin coverer {
-    @include absolute(0, null, null, 0);
-    @include size(100%);
+    @include absolute(0, 0, 0, 0);
 }
 
 // Center a block level element
@@ -238,13 +261,6 @@
 @mixin clean {
     margin: 0;
     padding: 0;
-}
-
-// Full background
-@mixin full-bg($size: 'cover', $position: 'center center', $repeat: 'no-repeat') {
-    background-size: #{$size};
-    background-repeat: #{$repeat};
-    background-position: #{$position};
 }
 
 // Add a box fade (image fade)
@@ -283,6 +299,69 @@
     }
 }
 
+// Full background
+@mixin full-bg($position: 'center center', $size: 'cover', $repeat: 'no-repeat') {
+    background-size: #{$size};
+    background-position: #{$position};
+    background-repeat: #{$repeat};
+}
+
+// Preload images using CSS
+// Usage:
+//    // Add images to a list
+//    $images: ();
+//    @for $i from 1 through 10 {
+//        $image: '../img/example-#{$i}.jpg';
+//        $images: append($images, $image);
+//    }
+//    @include preload($images);
+
+//    // Load all the images (this can only be called once)
+//    @include preload;
+
+@mixin preload($preload: run) {
+	@if not variable-exists(_preload-image-list) {
+		$_preload-image-list: ()!global;
+	}
+	@if not variable-exists(_preload-image-urls) {
+		$_preload-image-urls: ()!global;
+	}
+	@if not variable-exists(_preload-images-loaded) {
+		$_preload-images-loaded: false!global;
+	}
+	@if $preload == run and not $_preload-images-loaded {
+		$_preload-images-loaded: true!global;
+		html:after {
+			content: '';
+			display: none;
+			background-image: $_preload-image-urls;
+		}
+	} @else {
+		$_preload-image-list: join($preload, $_preload-image-list)!global;
+		$image-urls: ();
+		@if length($_preload-image-list) > 0 {
+			@for $i from 1 through length($_preload-image-list) {
+				$image-urls: join(url(#{nth($_preload-image-list,$i)}), $image-urls);
+			}
+			$result: ();
+			@each $item in $image-urls {
+				@if not index($result, $item) {
+					$result: append($result, $item, comma);
+				}
+			}
+			$_preload-image-urls: $result!global;
+		}
+	}
+}
+
+// Skew a section and unskew it's contents
+@mixin skew-section($deg) {
+    transform: skewY($deg);
+
+    .container {
+        transform: skewY(-($deg));
+    }
+}
 
 // Debugging
 // ------------------------

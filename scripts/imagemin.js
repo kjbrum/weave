@@ -16,13 +16,15 @@ imagemin([srcImgDir + '*.{jpg,jpeg,gif,png,svg}'], distImgDir, {
     plugins: [
         imageminJpegtran(),
         imageminGifsicle(),
-        imageminPngquant({quality: '60-75'}),
+        imageminPngquant({
+            quality: '60-75'
+        }),
         imageminSvgo({
-			plugins: [
-				{
+            plugins: [
+                {
                     removeViewBox: false
                 }
-			]
-		})
+            ]
+        })
     ]
 });

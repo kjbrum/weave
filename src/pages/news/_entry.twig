@@ -2,16 +2,16 @@
 
 {% block content %}
 
-    <!-- Blocks -->
-    <div class="section section--blocks">
+    <!-- Article -->
+    <section class="section section--article">
         <div class="container">
             <div class="row">
-                {% set entry = craft.entries.section.news|first %}
+                {% set article = articles|first %}
                 <div class="col">
-                    {% include '../../partials/blocks/block.twig' %}
+                    {% include '../../partials/blocks/block-article.twig' %}
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 {% endblock %}

@@ -80,6 +80,14 @@
     @return rgba($red, $green, $blue, $alpha);
 }
 
+// Generate a random number with a minimum/maximum
+@function minmax($min: 0, $max: 100) {
+    $rand: random();
+    $number: $min + floor($rand * (($max - $min) + 1));
+
+    @return $number;
+}
+
 // Replace a string
 @function str-replace($string, $search, $replace: '') {
     $index: str-index($string, $search);
@@ -89,4 +97,13 @@
     }
 
     @return $string;
+}
+
+// Check if a list contains something
+@function list-contains($list, $var) {
+    @if index($list, $var) {
+        @return true;
+    } @else {
+        @return false;
+    }
 }

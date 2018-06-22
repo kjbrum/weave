@@ -1,64 +1,58 @@
 {
     "slug": "default",
-    "title": "Weave | Prototyping made easy.",
-    "description": "Just the default description",
+    "title": "Weave",
+    "description": "Prototyping made easy.",
     "locations": ["Des Moines, IA", "Cedar Rapids, IA", "Iowa City, IA"],
-    "craft": {
-        "categories": [
-            {
-                "url": "#",
-                "title": "Category1"
-            },
-            {
-                "url": "#",
-                "title": "Second Category"
-            },
-            {
-                "url": "#",
-                "title": "Another Cat"
+    "categories": [
+        {
+            "url": "#",
+            "title": "Category1"
+        },
+        {
+            "url": "#",
+            "title": "Second Category"
+        },
+        {
+            "url": "#",
+            "title": "Another Cat"
+        }
+    ],
+    "articles": [
+        {
+            "url": "/news/_entry.html",
+            "title": "The First Block Title",
+            "description": "This is a great description...",
+            "image": {
+                "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
+                "alt": "Just some placeholder pic."
             }
-        ],
-        "entries": {
-            "section": {
-                "news": [
-                    {
-                        "url": "/news/_entry.html",
-                        "title": "The First Block Title",
-                        "description": "This is a great description...",
-                        "image": {
-                            "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
-                            "alt": "Just some placeholder pic."
-                        }
-                    },
-                    {
-                        "url": "/news/_entry.html",
-                        "title": "Second Block Title",
-                        "description": "This is another awesome description...",
-                        "image": {
-                            "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
-                            "alt": "Just some placeholder pic."
-                        }
-                    },
-                    {
-                        "url": "/news/_entry.html",
-                        "title": "Another Block Title",
-                        "description": "Description will go hurrr...",
-                        "image": {
-                            "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
-                            "alt": "Just some placeholder pic."
-                        }
-                    },
-                    {
-                        "url": "/news/_entry.html",
-                        "title": "Last Block Title",
-                        "description": "Just another dumb description...",
-                        "image": {
-                            "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
-                            "alt": "Just some placeholder pic."
-                        }
-                    }
-                ]
+        },
+        {
+            "url": "/news/_entry.html",
+            "title": "Second Block Title",
+            "description": "This is another awesome description...",
+            "image": {
+                "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
+                "alt": "Just some placeholder pic."
+            }
+        },
+        {
+            "url": "/news/_entry.html",
+            "title": "Another Block Title",
+            "description": "Description will go hurrr...",
+            "image": {
+                "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
+                "alt": "Just some placeholder pic."
+            }
+        },
+        {
+            "url": "/news/_entry.html",
+            "title": "Last Block Title",
+            "description": "Just another dumb description...",
+            "image": {
+                "src": "http://placeholder.pics/svg/275/8B8AE2/F17CAC-8B8AE2",
+                "alt": "Just some placeholder pic."
             }
         }
-    }
+    ]
 }

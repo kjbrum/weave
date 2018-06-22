@@ -11,7 +11,7 @@ input[type="button"] {
     font-size: 1rem;
 	font-weight: normal;
 	margin-bottom: 0.5rem;
-	padding: 0.8rem 1.5rem;
+	padding: 1rem 1.5rem 0.9rem;
 	text-align: center;
     font-family: $font;
     cursor: pointer;
@@ -20,6 +20,9 @@ input[type="button"] {
 	border: 1px solid $primary;
     border-radius: 3px;
     transition: 0.3s ease-in-out;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+	appearance: none;
 
 	&:hover,
 	&:focus {

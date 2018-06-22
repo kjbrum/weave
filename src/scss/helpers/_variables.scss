@@ -1,8 +1,28 @@
 // Variables
 // ------------------------
 
-// Enable debugging features
-$debug: false;
+
+// Features
+// ------------------------
+
+// Debugging
+$enable-debugging: false;
+
+// Scroll Animations (for use with inview.js)
+$enable-scroll-animations: false;
+
+// Enable grid features
+// Options: flexbox | offset | push-pull | block-grid | 5-columns | halfs | first-last | fill-fixed
+$enable-grid-features: (
+    // flexbox
+    // offset
+    // push-pull
+    // block-grid
+    // 5-columns
+    // halfs
+    // first-last
+    // fill-fixed
+);
 
 
 // Colors
@@ -11,38 +31,46 @@ $primary: #8B8AE2;
 $secondary: #F17CAC;
 $colors: (
     'primary': (
-        'light': tint($primary, 20%),
+        'ultralight': tint($primary, 25%),
+        'light': tint($primary, 10%),
         'normal': $primary,
-        'dark': shade($primary, 20%),
+        'dark': shade($primary, 10%),
+        'ultradark': shade($primary, 25%)
     ),
     'secondary': (
-        'light': tint($secondary, 20%),
+        'ultralight': tint($secondary, 25%),
+        'light': tint($secondary, 10%),
         'normal': $secondary,
-        'dark': shade($secondary, 10%)
+        'dark': shade($secondary, 10%),
+        'ultradark': shade($secondary, 25%)
     ),
     'gray': (
-        'ultralight': #EEEEEE,
-        'light': #CCCCCC,
-        'normal': #9B9B9B,
+        'ultralight': #eeeeee,
+        'light': #cccccc,
+        'normal': #9b9b9b,
         'dark': #666666,
         'ultradark': #444444
     ),
     'other': (
-        'white': #FFFFFF,
+        'white': #ffffff,
         'black': #222222,
-        'success': #92F0A1,
-        'warn': #F0E591,
-        'alert': #FF676B
+        'green': #92f0a1,
+        'yellow': #f0e591,
+        'red': #ff676b
     )
 );
 
 // Primary
+$primary-ultralight: map-get(map-get($colors, 'primary'), 'ultralight');
 $primary-light: map-get(map-get($colors, 'primary'), 'light');
 $primary-dark: map-get(map-get($colors, 'primary'), 'dark');
+$primary-ultradark: map-get(map-get($colors, 'primary'), 'ultradark');
 
 // Secondary
+$secondary-ultralight: map-get(map-get($colors, 'secondary'), 'ultralight');
 $secondary-light: map-get(map-get($colors, 'secondary'), 'light');
 $secondary-dark: map-get(map-get($colors, 'secondary'), 'dark');
+$secondary-ultradark: map-get(map-get($colors, 'secondary'), 'ultradark');
 
 // Grays
 $gray-ultralight: map-get(map-get($colors, 'gray'), 'ultralight');
@@ -54,15 +82,14 @@ $gray-ultradark: map-get(map-get($colors, 'gray'), 'ultradark');
 // Misc
 $white: map-get(map-get($colors, 'other'), 'white');
 $black: map-get(map-get($colors, 'other'), 'black');
-$success: map-get(map-get($colors, 'other'), 'success');
-$warn: map-get(map-get($colors, 'other'), 'warn');
-$alert: map-get(map-get($colors, 'other'), 'alert');
+$green: map-get(map-get($colors, 'other'), 'green');
+$yellow: map-get(map-get($colors, 'other'), 'yellow');
+$red: map-get(map-get($colors, 'other'), 'red');
 
 
 // Fonts
 // ------------------------
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:300,400,700);
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:300,400,700);
 
 // Primary font
 $helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -82,7 +109,7 @@ $font-mono: $consolas;
 // Layout/Grid
 // ------------------------
 $min-width: rem-calc(320);
-$max-width: rem-calc(1400);
+$max-width: rem-calc(1200);
 
 $num-columns: 12;
 $grid-width: $max-width;
@@ -94,10 +121,10 @@ $grid-item-prefix: 'col';
 $breakpoints: (
     xxs: (
         min: rem-calc(0),
-        max: rem-calc(320)
+        max: $min-width
     ),
     xs: (
-        min: rem-calc(321),
+        min: $min-width + rem-calc(1),
         max: rem-calc(480)
     ),
     s: (
@@ -198,9 +225,8 @@ $ease-in-out-back: cubic-bezier(0.680, -0.550, 0.265, 1.550);
 
 // Misc
 // ------------------------
-$chevron-left: "\2039";
-$chevron-right: "\203A";
-$close: "\00D7";
+$chevron-left: "&#x3008;";
+$chevron-right: "&#x3009;";
+$close: "&#x2715;";
 $quote-left: "\201c";
 $quote-right: "\201d";
-$arrow: "\279D"

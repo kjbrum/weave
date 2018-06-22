@@ -7,20 +7,20 @@
 }
 
 ::selection {
-    color: $secondary;
+    color: $white;
     background-color: $primary;
 }
 
 html {
-    @if $debug {
+    @if $enable-debugging {
         @include debug-breakpoints;
     }
 }
 
 body {
-    overflow-x: hidden;
+	font: 100%/1.5 $font;
+	-webkit-text-size-adjust: 100%;
+	color: $gray-dark;
     min-width: $min-width;
-    font: 100%/1.5 $font;
-    -webkit-text-size-adjust: 100%;
-    color: $black;
+    overflow-x: hidden;
 }

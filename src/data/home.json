@@ -1,6 +1,4 @@
 {
     "home": true,
-    "slug": "home",
-    "title": "Weave",
-    "description": "Prototyping made easy."
+    "slug": "home"
 }
