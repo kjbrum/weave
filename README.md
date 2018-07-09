@@ -9,8 +9,6 @@
 - [Sass(SCSS)](http://sass-lang.com/) - CSS preprocessing
     - [Node-sass](https://github.com/sass/node-sass) - Compiling and minifying
     - [Autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefixing
-    - [Critical CSS](https://github.com/addyosmani/critical) - Extract critical-path CSS
-- [Imagemin](https://github.com/imagemin/imagemin) - Optimize images (jpg, jpeg, gif, png)
 - [Uglify.js](https://github.com/mishoo/UglifyJS2) - Minifying JavaScript
 - [Twig](http://twig.sensiolabs.org/) - Creating templates/partials
 
