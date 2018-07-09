@@ -9,17 +9,17 @@
     "css:autoprefix": "postcss --use autoprefixer -r dist/css/*.css",
     "css:build": "npm run css:compile && npm run css:autoprefix",
     "css:compile": "node-sass --source-map true --output-style compressed src/scss/style.scss dist/css/style.css",
-    "css:watch": "watch \"npm run css:build\" src/scss",
+    "css:watch": "chokidar \"src/scss\" --command \"npm run css:build\"",
     "dev": "npm run build && parallelshell \"npm run watch\" \"npm run browsersync\"",
     "img:build": "rm -rf \"dist/img/*\" && cp -a \"src/img/.\" \"dist/img/\"",
-    "img:watch": "watch \"npm run img:build\" src/img",
+    "img:watch": "chokidar \"src/img\" --command \"npm run img:build\"",
     "twig:build": "node scripts/twig-build.js",
-    "twig:watch": "watch \"npm run twig:build\" src/pages src/partials src/data",
+    "twig:watch": "chokidar \"src/pages\" \"src/partials\" \"src/data\" --command \"npm run twig:build\"",
     "js:build:all": "npm run js:build:head && npm run js:build:main",
     "js:build:head": "babel --presets env,minify src/js/head --out-file dist/js/head.min.js",
     "js:build:main": "babel --presets env,minify src/js/main.js --out-file dist/js/main.min.js",
-    "js:watch:head": "watch \"npm run js:build:head\" src/js/head",
-    "js:watch:main": "watch \"npm run js:build:main\" src/js/main.js",
+    "js:watch:head": "chokidar \"src/js/head/**/*.js\" --command \"npm run js:build:head\"",
+    "js:watch:main": "chokidar \"src/js/main.js\" --command \"npm run js:build:main\"",
     "setup:build": "mkdir \"dist\" && mkdir \"dist/css\" && mkdir \"dist/js\" && mkdir \"dist/img\"",
     "watch": "parallelshell \"npm run twig:watch\" \"npm run js:watch:head\" \"npm run js:watch:main\" \"npm run css:watch\" \"npm run img:watch\""
   },
@@ -38,18 +38,17 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-minify": "^0.4.3",
+    "chokidar-cli": "^1.2.0",
     "glob": "latest",
     "js-beautify": "latest",
     "node-sass": "latest",
     "parallelshell": "latest",
     "postcss-cli": "latest",
-    "twig": "latest",
-    "uglify-js": "latest",
-    "watch": "latest"
+    "twig": "latest"
   },
   "browserslist": [
     "last 2 versions",
     "> 1%",
     "ie > 8"
-  ]  
+  ]
 }
