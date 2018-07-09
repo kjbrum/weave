@@ -4,7 +4,7 @@
   "description": "Prototyping made easy.",
   "scripts": {
     "browsersync": "browser-sync start --server \"dist\" --files \"dist/**/*\" --reload-delay 2000",
-    "build": "npm run clean && npm run setup:build && npm run twig:build && npm run img:build && npm run js:build && npm run css:build",
+    "build": "npm run clean && npm run setup:build && npm run twig:build && npm run img:build && npm run js:build:all && npm run css:build",
     "clean": "rm -rf \"dist\"",
     "css:autoprefix": "postcss --use autoprefixer -r dist/css/*.css",
     "css:build": "npm run css:compile && npm run css:autoprefix",
@@ -15,12 +15,13 @@
     "img:watch": "watch \"npm run img:build\" src/img",
     "twig:build": "node scripts/twig-build.js",
     "twig:watch": "watch \"npm run twig:build\" src/pages src/partials src/data",
-    "js:build": "npm run js:head && npm run js:main",
-    "js:head": "uglifyjs src/js/head/*.js -o dist/js/head.min.js",
-    "js:main": "uglifyjs src/js/main/*.js -o dist/js/main.min.js",
-    "js:watch": "watch \"npm run js:build\" src/js/head src/js/main",
+    "js:build:all": "npm run js:build:head && npm run js:build:main",
+    "js:build:head": "babel --presets env,minify src/js/head --out-file dist/js/head.min.js",
+    "js:build:main": "babel --presets env,minify src/js/main.js --out-file dist/js/main.min.js",
+    "js:watch:head": "watch \"npm run js:build:head\" src/js/head",
+    "js:watch:main": "watch \"npm run js:build:main\" src/js/main.js",
     "setup:build": "mkdir \"dist\" && mkdir \"dist/css\" && mkdir \"dist/js\" && mkdir \"dist/img\"",
-    "watch": "parallelshell \"npm run twig:watch\" \"npm run js:watch\" \"npm run css:watch\" \"npm run img:watch\""
+    "watch": "parallelshell \"npm run twig:watch\" \"npm run js:watch:head\" \"npm run js:watch:main\" \"npm run css:watch\" \"npm run img:watch\""
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,9 @@
   "homepage": "https://github.com/kjbrum/weave#readme",
   "devDependencies": {
     "autoprefixer": "latest",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.4.3",
     "glob": "latest",
     "js-beautify": "latest",
     "node-sass": "latest",
@@ -42,5 +46,10 @@
     "twig": "latest",
     "uglify-js": "latest",
     "watch": "latest"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "ie > 8"
+  ]  
 }
