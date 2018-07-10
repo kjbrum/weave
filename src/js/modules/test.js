@@ -1,10 +1,10 @@
-export default class Test {
+class TestModule {
     constructor(name) {
         this.name = name;
-        this.printTest();
-    },
+        this.printName();
+    }
 
-    printTest() {
+    printName() {
         console.log(`Init ${this.name} module!`);
     }
 }
