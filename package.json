@@ -4,13 +4,13 @@
   "description": "Prototyping made easy.",
   "scripts": {
     "autoprefix:css": "postcss --use autoprefixer -r dist/css/*.css",
-    "browsersync": "browser-sync start --server \"dist\" --files \"dist/**/*\" --reload-delay 2000",
+    "browsersync": "browser-sync start --server \"dist\" --files \"dist/**/*\"",
     "build": "npm-run-all clean setup --parallel build:*",
     "build:css": "npm-run-all compile:css autoprefix:css",
     "build:img": "rm -rf \"dist/img/*\" && cp -a \"src/img/.\" \"dist/img/\"",
     "build:js": "npm-run-all --parallel build:js:*",
-    "build:js:head": "uglifyjs src/js/head/*.js -o dist/js/head.min.js",
-    "build:js:main": "uglifyjs src/js/main/*.js -o dist/js/main.min.js",
+    "build:js:head": "babel --presets env,minify src/js/head --out-file dist/js/head.min.js",
+    "build:js:main": "babel --presets env,minify src/js/modules src/js/main.js --out-file dist/js/main.min.js",
     "build:twig": "node scripts/twig-build.js",
     "clean": "rm -rf \"dist\"",
     "compile:css": "node-sass --source-map true --output-style compressed src/scss/style.scss dist/css/style.css",
@@ -21,7 +21,7 @@
     "watch:img": "chokidar \"src/img\" --command \"npm run build:img\"",
     "watch:js": "npm-run-all --parallel watch:js:*",
     "watch:js:head": "chokidar \"src/js/head/*.js\" --command \"npm run build:js:head\"",
-    "watch:js:main": "chokidar \"src/js/main/*.js\" --command \"npm run build:js:main\"",
+    "watch:js:main": "chokidar \"src/js/main.js\" \"src/js/modules/*.js\" --command \"npm run build:js:main\"",
     "watch:twig": "chokidar \"src/pages\" \"src/partials\" \"src/data\" --command \"npm run build:twig\""
   },
   "repository": {
@@ -36,6 +36,9 @@
   "homepage": "https://github.com/kjbrum/weave#readme",
   "devDependencies": {
     "autoprefixer": "latest",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.4.3",
     "chokidar-cli": "^1.2.0",
     "glob": "latest",
     "js-beautify": "latest",
@@ -43,7 +46,11 @@
     "npm-run-all": "^4.1.3",
     "parallelshell": "latest",
     "postcss-cli": "latest",
-    "twig": "latest",
-    "uglify-js": "latest"
-  }
+    "twig": "latest"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "ie > 8"
+  ]
 }
