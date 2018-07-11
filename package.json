@@ -4,7 +4,7 @@
   "description": "Prototyping made easy.",
   "scripts": {
     "autoprefix:css": "postcss --use autoprefixer -r dist/css/*.css",
-    "browsersync": "browser-sync start --server \"dist\" --files \"dist/**/*\" --reload-delay 2000",
+    "browsersync": "browser-sync start --server \"dist\" --files \"dist/**/*\"",
     "build": "npm-run-all clean setup --parallel build:*",
     "build:css": "npm-run-all compile:css autoprefix:css",
     "build:img": "rm -rf \"dist/img/*\" && cp -a \"src/img/.\" \"dist/img/\"",
