@@ -13,6 +13,7 @@
     "build:twig": "node scripts/twig-build.js",
     "clean": "rm -rf 'build'",
     "compile:css": "node-sass --source-map true --output-style compressed src/scss/style.scss build/css/style.css",
+    "deploy": "surge ./build <project>.surge.sh",
     "dev": "npm-run-all build --parallel watch:*",
     "setup": "mkdir 'build' && mkdir 'build/css' && mkdir 'build/js' && mkdir 'build/img'",
     "watch:browsersync": "npm run browsersync",
