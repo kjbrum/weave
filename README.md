@@ -5,8 +5,8 @@
 
 ## Features
 
-- [Twig](http://twig.sensiolabs.org/) - Creating pages/templates/partials
-- [Browserify/Babelify](http://browserify.org/) - Bundling JavaScript
+- [Twig](http://twig.sensiolabs.org/) - Templating for layouts and partials
+- [Browserify/Babelify](http://browserify.org/) - JavaScript bundling
 - [Sass(SCSS)](http://sass-lang.com/) - CSS preprocessing
     - [Node-sass](https://github.com/sass/node-sass) - Compiling and minifying Sass
     - [Autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefixing CSS
