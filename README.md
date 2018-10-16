@@ -5,12 +5,12 @@
 
 ## Features
 
-- [Browsersync](https://www.browsersync.io/) - Synchronised browser testing
+- [Twig](http://twig.sensiolabs.org/) - Creating pages/templates/partials
+- [Browserify/Babelify](http://browserify.org/) - Bundling JavaScript
 - [Sass(SCSS)](http://sass-lang.com/) - CSS preprocessing
     - [Node-sass](https://github.com/sass/node-sass) - Compiling and minifying Sass
     - [Autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefixing CSS
-- [Babel](https://babeljs.io/) - Bundling and minifying JavaScript
-- [Twig](http://twig.sensiolabs.org/) - Creating pages/templates/partials
+- [Browsersync](https://www.browsersync.io/) - Synchronised browser testing
 
 
 ## Getting Started
