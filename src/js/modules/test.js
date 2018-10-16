@@ -8,3 +8,5 @@ class TestModule {
         console.log(`Init ${this.name} module!`);
     }
 }
+
+module.exports = TestModule;
