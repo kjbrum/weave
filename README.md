@@ -58,7 +58,7 @@ __Include and Extends__
 
 - Twig includes will need to be passed the relative path to the partial you would like to include.
     ```
-    {% extends '../partials/general/_layout.twig' %}
+    {% extends '../partials/base/_layout.twig' %}
 
     {% block content %}
         {% include 'path/to/partial.twig' %}
