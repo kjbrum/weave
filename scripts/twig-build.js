@@ -12,7 +12,7 @@ const srcDir = 'src/';
 const srcPagesDir = srcDir + 'pages/';
 const srcPartialsDir = srcDir + 'partials/';
 const srcDataDir = srcDir + 'data/';
-const distDir = 'dist/';
+const buildDir = 'build/';
 
 // Merge two JSON files
 var mergeJSON = (file1, file2) => {
@@ -31,7 +31,7 @@ var compileTwigTemplate = (item) => {
     var filename = item.substring(item.lastIndexOf('/') + 1);
     var page = filename.split('.')[0];
     var filename = page;
-    var newDistDir = path.replace(srcPagesDir, distDir);
+    var newbuildDir = path.replace(srcPagesDir, buildDir);
     var dataFile = path.replace(srcPagesDir, srcDataDir) + page + '.json'
 
     // Rename the home file to index
@@ -48,8 +48,8 @@ var compileTwigTemplate = (item) => {
     }
 
     // Create the directory structure
-    if (!fs.existsSync(newDistDir)) {
-        fs.mkdir(newDistDir);
+    if (!fs.existsSync(newbuildDir)) {
+        fs.mkdir(newbuildDir);
     }
 
     // Compile the Twig files
@@ -57,7 +57,7 @@ var compileTwigTemplate = (item) => {
         var prettyHTML = beautify.html(html, { indent_size: 4 });
 
         // Create the new compiled HTML file
-        fs.writeFile(newDistDir + filename + '.html', prettyHTML, (err) => {
+        fs.writeFile(newbuildDir + filename + '.html', prettyHTML, (err) => {
             if (err) throw err;
         });
     });

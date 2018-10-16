@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include '../base/head.twig' %}
+    {% include 'head.twig' %}
 
     <body>
         <!-- Navigation -->
-        {% include 'nav.twig' %}
+        {% include '../general/nav.twig' %}
 
         <!-- Hero -->
         {% include '../sections/section-hero.twig' %}
@@ -14,9 +14,9 @@
         {% endblock %}
 
         <!-- Footer -->
-        {% include 'footer.twig' %}
+        {% include '../general/footer.twig' %}
 
         <!-- JavaScript -->
-        <script src="/js/main.min.js"></script>
+        <script src="/js/app.min.js"></script>
     </body>
 </html>
