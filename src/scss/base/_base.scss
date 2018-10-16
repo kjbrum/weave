@@ -12,15 +12,15 @@
 }
 
 html {
-    @if $enable-debugging {
+    @if feature(debugging) {
         @include debug-breakpoints;
     }
 }
 
 body {
+    overflow-x: hidden;
+    min-width: $min-width;
 	font: 100%/1.5 $font;
 	-webkit-text-size-adjust: 100%;
 	color: $gray-dark;
-    min-width: $min-width;
-    overflow-x: hidden;
 }

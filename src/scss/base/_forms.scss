@@ -6,6 +6,7 @@ input[type='tel'],
 input[type='number'],
 input[type='search'],
 input[type='url'],
+input[type='date'],
 input[type='password'],
 textarea,
 select {
@@ -18,7 +19,7 @@ select {
     border: 1px solid $gray;
     border-radius: 3px;
     box-shadow: none;
-    transition: border 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 
     &:hover {
         border-color: $gray-dark;
@@ -36,6 +37,7 @@ input[type='tel'],
 input[type='number'],
 input[type='search'],
 input[type='url'],
+input[type='date'],
 input[type='password'],
 textarea {
     -webkit-appearance: none;
@@ -45,7 +47,7 @@ textarea {
 
 textarea {
     width: 100%;
-    min-height: 160px; // 4x the height of an input (40px)
+    min-height: 160px; // 4x the height of an input
     resize: vertical;
 }
 
@@ -54,7 +56,7 @@ legend {
     display: block;
     margin-bottom: 0.25rem;
     font-family: $font-secondary;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
 }
 
 fieldset {

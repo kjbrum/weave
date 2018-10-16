@@ -5,30 +5,29 @@
 // Features
 // ------------------------
 
-// Debugging
-$enable-debugging: false;
+$enable-features: (
+    // ----- Grid -----
+    // grid-flexbox
+    // grid-offset
+    // grid-push-pull
+    // grid-block-grid
+    // grid-5-columns
+    // grid-halfs
+    // grid-first-last
 
-// Scroll Animations (for use with inview.js)
-$enable-scroll-animations: false;
-
-// Enable grid features
-// Options: flexbox | offset | push-pull | block-grid | 5-columns | halfs | first-last | fill-fixed
-$enable-grid-features: (
-    // flexbox
-    // offset
-    // push-pull
-    block-grid
-    // 5-columns
-    // halfs
-    // first-last
-    // fill-fixed
+    // ----- Misc -----
+    // show-hide-helpers
+    // text-colors
+    // bg-colors
+    // scroll-animations
+    // debugging
 );
 
 
 // Colors
 // ------------------------
-$primary: #8B8AE2;
-$secondary: #F17CAC;
+$primary: #d9531e;
+$secondary: #f78e1e;
 $colors: (
     'primary': (
         'ultralight': tint($primary, 25%),
@@ -61,30 +60,30 @@ $colors: (
 );
 
 // Primary
-$primary-ultralight: map-get(map-get($colors, 'primary'), 'ultralight');
-$primary-light: map-get(map-get($colors, 'primary'), 'light');
-$primary-dark: map-get(map-get($colors, 'primary'), 'dark');
-$primary-ultradark: map-get(map-get($colors, 'primary'), 'ultradark');
+$primary-ultralight: color('primary', 'ultralight');
+$primary-light: color('primary', 'light');
+$primary-dark: color('primary', 'dark');
+$primary-ultradark: color('primary', 'ultradark');
 
 // Secondary
-$secondary-ultralight: map-get(map-get($colors, 'secondary'), 'ultralight');
-$secondary-light: map-get(map-get($colors, 'secondary'), 'light');
-$secondary-dark: map-get(map-get($colors, 'secondary'), 'dark');
-$secondary-ultradark: map-get(map-get($colors, 'secondary'), 'ultradark');
+$secondary-ultralight: color('secondary', 'ultralight');
+$secondary-light: color('secondary', 'light');
+$secondary-dark: color('secondary', 'dark');
+$secondary-ultradark: color('secondary', 'ultradark');
 
 // Grays
-$gray-ultralight: map-get(map-get($colors, 'gray'), 'ultralight');
-$gray-light: map-get(map-get($colors, 'gray'), 'light');
-$gray: map-get(map-get($colors, 'gray'), 'normal');
-$gray-dark: map-get(map-get($colors, 'gray'), 'dark');
-$gray-ultradark: map-get(map-get($colors, 'gray'), 'ultradark');
+$gray-ultralight: color('gray', 'ultralight');
+$gray-light: color('gray', 'light');
+$gray: color('gray', 'normal');
+$gray-dark: color('gray', 'dark');
+$gray-ultradark: color('gray', 'ultradark');
 
 // Misc
-$white: map-get(map-get($colors, 'other'), 'white');
-$black: map-get(map-get($colors, 'other'), 'black');
-$green: map-get(map-get($colors, 'other'), 'green');
-$yellow: map-get(map-get($colors, 'other'), 'yellow');
-$red: map-get(map-get($colors, 'other'), 'red');
+$white: color('other', 'white');
+$black: color('other', 'black');
+$green: color('other', 'green');
+$yellow: color('other', 'yellow');
+$red: color('other', 'red');
 
 
 // Fonts
@@ -104,6 +103,10 @@ $font-secondary: $roboto;
 // Monospaced
 $consolas: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 $font-mono: $consolas;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-bold: 700;
 
 
 // Layout/Grid
@@ -146,24 +149,24 @@ $breakpoints: (
 );
 
 // Breakpoint variables
-$bp-xxs: map-get(map-get($breakpoints, xxs), max);
-$bp-xxs-min: map-get(map-get($breakpoints, xxs), min);
-$bp-xxs-max: map-get(map-get($breakpoints, xxs), max);
-$bp-xs: map-get(map-get($breakpoints, xs), max);
-$bp-xs-min: map-get(map-get($breakpoints, xs), min);
-$bp-xs-max: map-get(map-get($breakpoints, xs), max);
-$bp-s: map-get(map-get($breakpoints, s), max);
-$bp-s-min: map-get(map-get($breakpoints, s), min);
-$bp-s-max: map-get(map-get($breakpoints, s), max);
-$bp-m: map-get(map-get($breakpoints, m), max);
-$bp-m-min: map-get(map-get($breakpoints, m), min);
-$bp-m-max: map-get(map-get($breakpoints, m), max);
-$bp-l: map-get(map-get($breakpoints, l), max);
-$bp-l-min: map-get(map-get($breakpoints, l), min);
-$bp-l-max: map-get(map-get($breakpoints, l), max);
-$bp-xl: map-get(map-get($breakpoints, xl), max);
-$bp-xl-min: map-get(map-get($breakpoints, xl), min);
-$bp-xl-max: map-get(map-get($breakpoints, xl), max);
+$bp-xxs: breakpoint(xxs, max);
+$bp-xxs-min: breakpoint(xxs, min);
+$bp-xxs-max: breakpoint(xxs, max);
+$bp-xs: breakpoint(xs, max);
+$bp-xs-min: breakpoint(xs, min);
+$bp-xs-max: breakpoint(xs, max);
+$bp-s: breakpoint(s, max);
+$bp-s-min: breakpoint(s, min);
+$bp-s-max: breakpoint(s, max);
+$bp-m: breakpoint(m, max);
+$bp-m-min: breakpoint(m, min);
+$bp-m-max: breakpoint(m, max);
+$bp-l: breakpoint(l, max);
+$bp-l-min: breakpoint(l, min);
+$bp-l-max: breakpoint(l, max);
+$bp-xl: breakpoint(xl, max);
+$bp-xl-min: breakpoint(xl, min);
+$bp-xl-max: breakpoint(xl, max);
 
 // Media Queries
 $bp-media-queries: (

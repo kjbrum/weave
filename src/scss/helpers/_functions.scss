@@ -107,3 +107,67 @@
         @return false;
     }
 }
+
+// Convert SVG to URL
+// Source: https://codepen.io/jakob-e/pen/doMoML
+@function svg-url($svg) {
+    $encoded: '';
+    $slice: 2000;
+    $index: 0;
+    $loops: ceil(str-length($svg) / $slice);
+
+    @for $i from 1 through $loops {
+        $chunk: str-slice($svg, $index, $index + $slice - 1);
+        $chunk: str-replace($chunk, '"', "'");
+        $chunk: str-replace($chunk, '<', '%3C');
+        $chunk: str-replace($chunk, '>', '%3E');
+        $chunk: str-replace($chunk, '&', '%26');
+        $chunk: str-replace($chunk, '#', '%23');
+
+        // Keep size and compile time down, only add on documented fail
+        // $chunk: str-replace($chunk, '|', '%7C');
+        // $chunk: str-replace($chunk, '[', '%5B');
+        // $chunk: str-replace($chunk, ']', '%5D');
+        // $chunk: str-replace($chunk, '^', '%5E');
+        // $chunk: str-replace($chunk, '`', '%60');
+        // $chunk: str-replace($chunk, ';', '%3B');
+        // $chunk: str-replace($chunk, '?', '%3F');
+        // $chunk: str-replace($chunk, ':', '%3A');
+        // $chunk: str-replace($chunk, '@', '%40');
+        // $chunk: str-replace($chunk, '=', '%3D');
+
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+
+    @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+}
+
+// Retrieve color from $colors map
+@function color($color-name, $color-variant: null) {
+    // Check if color variant
+    @if ($color-variant != null) {
+        @return map-get(map-get($colors, $color-name), $color-variant);
+    } @else {
+        @return map-get($colors, $color-name);
+    }
+}
+
+// Retrieve breakpoint from $breakpoints map
+@function breakpoint($breakpoint-name, $breakpoint-variant: null) {
+    // Check if breakpoint variant
+    @if ($breakpoint-variant != null) {
+        @return map-get(map-get($breakpoints, $breakpoint-name), $breakpoint-variant);
+    } @else {
+        @return map-get($breakpoints, $breakpoint-name);
+    }
+}
+
+// Check if a feature is enabled
+@function feature($feature: null) {
+    @if ($feature == null) {
+        @warn "You must supply a value to the feature function.";
+    }
+
+    @return list-contains($enable-features, $feature)
+}

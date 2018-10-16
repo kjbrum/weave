@@ -2,6 +2,7 @@
 // ------------------------
 
 // Clearfix
+[clear],
 .cf {
     @include clearfix;
 }
@@ -20,43 +21,46 @@
 }
 
 // Hide and show elements
+[hidden],
 .hide {
     display: none !important;
     visibility: hidden !important;
 }
 
-@each $breakpoint, $widths in $breakpoints {
-    [class*="show-#{$breakpoint}"] {
-        display: none;
-    }
-
-    @media (min-width: map-get(map-get($breakpoints, $breakpoint), min)) {
-        .show-#{$breakpoint}-up {
-            display: block !important;
+@if feature(show-hide-helpers) {
+    @each $breakpoint, $widths in $breakpoints {
+        [class*="show-#{$breakpoint}"] {
+            display: none;
         }
 
-        .hide-#{$breakpoint}-up {
-            display: none !important;
-        }
-    }
+        @media (min-width: breakpoint($breakpoint, min)) {
+            .show-#{$breakpoint}-up {
+                display: block !important;
+            }
 
-    @media (min-width: map-get(map-get($breakpoints, $breakpoint), min)) and (max-width: map-get(map-get($breakpoints, $breakpoint), max)) {
-        .show-#{$breakpoint} {
-            display: block !important;
-        }
-
-        .hide-#{$breakpoint} {
-            display: none !important;
-        }
-    }
-
-    @media (max-width: map-get(map-get($breakpoints, $breakpoint), max)) {
-        .show-#{$breakpoint}-down {
-            display: block !important;
+            .hide-#{$breakpoint}-up {
+                display: none !important;
+            }
         }
 
-        .hide-#{$breakpoint}-down {
-            display: none !important;
+        @media (min-width: breakpoint($breakpoint, min)) and (max-width: breakpoint($breakpoint, max)) {
+            .show-#{$breakpoint} {
+                display: block !important;
+            }
+
+            .hide-#{$breakpoint} {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: breakpoint($breakpoint, max)) {
+            .show-#{$breakpoint}-down {
+                display: block !important;
+            }
+
+            .hide-#{$breakpoint}-down {
+                display: none !important;
+            }
         }
     }
 }
@@ -70,54 +74,33 @@
 	float: left;
 }
 
-// Text align
-.text-right {
-	text-align: right;
-}
-
-.text-center {
-	text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-justify {
-    text-align: justify;
-}
-
-.text-top,
-.text-top * {
-    vertical-align: top;
-}
-
-.text-bottom,
-.text-bottom * {
-    vertical-align: bottom;
-}
-
 // Color styling classes
-@each $color, $types in $colors {
-    @each $type, $hex in $types {
-        $unique-selector: #{$color}-#{$type};
+@if feature(text-colors) or feature(bg-colors) {
+    @each $color, $types in $colors {
+        @each $type, $hex in $types {
+            $unique-selector: #{$color}-#{$type};
 
-        @if $type == normal {
-            $unique-selector: #{$color};
-        }
+            @if $type == normal {
+                $unique-selector: #{$color};
+            }
 
-        @if $color == other {
-            $unique-selector: #{$type};
-        }
+            @if $color == other {
+                $unique-selector: #{$type};
+            }
 
-        // Text color
-        .text-#{$unique-selector} {
-            color: $hex;
-        }
+            // Text color
+            @if feature(text-colors) {
+                .text-#{$unique-selector} {
+                    color: $hex;
+                }
+            }
 
-        // Background color
-        .bg-#{$unique-selector} {
-            background-color: $hex;
+            // Background color
+            @if feature(bg-colors) {
+                .bg-#{$unique-selector} {
+                    background-color: $hex;
+                }
+            }
         }
     }
 }

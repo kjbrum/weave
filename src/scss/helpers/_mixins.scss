@@ -3,7 +3,7 @@
 
 // Breakpoints
 // ------------------------
-@mixin bp($break, $viewport1: null) {
+@mixin bp($break, $viewport1: null, $isHeight: null) {
     // Preset breakpoint
     @if not $viewport1 {
         @if map-has-key($bp-media-queries, $break) {
@@ -21,6 +21,18 @@
         // max-width breakpoint
         @else if $break == max {
             @media screen and (max-width: $viewport1) { @content; }
+        }
+        // min-height breakpoint
+        @else if $break == min-height {
+            @media screen and (min-height: $viewport1) { @content; }
+        }
+        // max-height breakpoint
+        @else if $break == max-height {
+            @media screen and (max-height: $viewport1) { @content; }
+        }
+        // min-height & max-height breakpoint
+        @else if $isHeight {
+            @media screen and (min-height: $break) and (max-height: $viewport1) { @content; }
         }
         // min-width & max-width breakpoint
         @else {
@@ -226,6 +238,7 @@
     &:after {
         content: " ";
         display: table;
+        flex-basis: 0;
     }
 
     &:after {
@@ -318,7 +331,6 @@
 
 //    // Load all the images (this can only be called once)
 //    @include preload;
-
 @mixin preload($preload: run) {
 	@if not variable-exists(_preload-image-list) {
 		$_preload-image-list: ()!global;

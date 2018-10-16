@@ -1,6 +1,6 @@
 // Animations
 // ------------------------
-@if $enable-scroll-animations {
+@if feature(scroll-animations) {
     // Fade
     [data-fade] {
         opacity: 0;

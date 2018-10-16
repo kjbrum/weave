@@ -10,7 +10,7 @@ em {
 
 b,
 strong {
-    font-weight: 700;
+    font-weight: $font-weight-bold;
 }
 
 small {
@@ -18,7 +18,7 @@ small {
 }
 
 p {
-    font-weight: 300;
+    font-weight: $font-weight-normal;
     margin-bottom: 1rem;
     @include r-font-size(0.9rem, 1.1rem);
 
@@ -55,13 +55,13 @@ h6, .h6 {
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-    font-weight: 200;
+    font-weight: $font-weight-bold;
 }
 
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    font-weight: 600;
+    font-weight: $font-weight-normal;
 }
 
 h1, .h1 {
@@ -148,7 +148,7 @@ code {
     color: $gray-ultradark;
     text-align: left;
     font-size: 0.8rem;
-    font-weight: normal;
+    font-weight: $font-weight-normal;
     line-height: 1.5;
     text-decoration: none;
     white-space: pre;

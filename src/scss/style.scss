@@ -1,8 +1,3 @@
-/*
- * Main Styling
- */
-
-
 // Helpers
 // ------------------------
 @import "helpers/reset";
@@ -26,8 +21,8 @@
 // Components
 // ------------------------
 @import "components/animations";
-@import "components/header";
-@import "components/footer";
-@import "components/buttons";
-@import "components/sections";
 @import "components/blocks";
+@import "components/buttons";
+@import "components/footer";
+@import "components/header";
+@import "components/sections";
