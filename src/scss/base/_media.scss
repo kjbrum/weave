@@ -2,6 +2,11 @@
 // ------------------------
 
 // Icons
+//
+// Usage:
+// <svg class="icon icon-x">
+//     <use xlink:href="#icon-x"></use>
+// </svg>
 // ------------------------
 .icon {
     display: inline-block;
