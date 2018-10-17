@@ -9,7 +9,10 @@
 - [Browserify/Babelify](http://browserify.org/) - JavaScript bundling
 - [Sass(SCSS)](http://sass-lang.com/) - CSS preprocessing
     - [Node-sass](https://github.com/sass/node-sass) - Compiling and minifying Sass
-    - [Autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefixing CSS
+    - [PostCSS Plugins](https://github.com/postcss/postcss)
+        - [Autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefixing CSS
+        - [Pixrem](https://github.com/robwierzbowski/node-pixrem) - Generate pixel fallbacks for rem units
+        - [Flexibility](https://github.com/7rulnik/postcss-flexibility) - Flexbox polyfills
 - [Browsersync](https://www.browsersync.io/) - Synchronised browser testing
 
 
