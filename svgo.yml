@@ -1,4 +1,5 @@
 plugins:
+- removeUselessStrokeAndFill: false
 - removeViewBox: false
 - removeDimensions: true
 # - removeAttrs:

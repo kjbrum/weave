@@ -9,7 +9,7 @@
     "build:css": "npm-run-all compile:css autoprefix:css",
     "build:images": "rm -rf 'build/assets/images/*' && cp -a 'src/assets/images/.' 'build/assets/images/'",
     "build:js": "npm-run-all --parallel build:js:*",
-    "build:js:app": "browserify src/js/app.js --outfile build/js/app.min.js",
+    "build:js:app": "browserify 'src/js/app.js' --outfile 'build/js/app.min.js'",
     "build:svgs": "svgo --folder='src/assets/svg' --output 'build/assets/svg' --config=svgo.yml --quiet",
     "build:svg-defs": "svgstore -o 'src/assets/svg-defs.svg' --inline 'build/assets/svg/*.svg' && cp 'src/assets/svg-defs.svg' 'build/assets/svg-defs.svg'",
     "build:twig": "node scripts/twig-build.js",
