@@ -1,12 +1,12 @@
 class TestModule {
     constructor(name) {
-        this.name = name;
-        this.printName();
+        this.name = name
+        this.printName()
     }
 
     printName() {
-        console.log(`Init ${this.name} module!`);
+        console.log(`Init ${this.name} module!`)
     }
 }
 
-module.exports = TestModule;
+export default TestModule

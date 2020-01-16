@@ -6,15 +6,20 @@
 ## Features
 
 - [Twig](http://twig.sensiolabs.org/) - Create pages/templates/partials
-- [Sass(SCSS)](http://sass-lang.com/) - Preprocess CSS
-    - [Node-sass](https://github.com/sass/node-sass) - Compile and minify Sass
+- [CSS](http://sass-lang.com/) - Preprocess CSS
+    - [TailwindCSS](https://tailwindcss.com)
     - [PostCSS Plugins](https://github.com/postcss/postcss)
-        - [Autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefix CSS
-        - [Pixrem](https://github.com/robwierzbowski/node-pixrem) - Generate pixel fallbacks for rem units
-        - [Flexibility](https://github.com/7rulnik/postcss-flexibility) - Flexbox polyfills
+        - [postcss-import](https://github.com/postcss/postcss-import) - Transforms `@import` rules by inlining content
+        - [postcss-hexrgba](https://github.com/seaneking/postcss-hexrgba) - Adds shorthand hex methods to rgba() values
+        - [postcss-nested](https://github.com/postcss/postcss-nested) - Unwraps nested rules like how Sass does it
+        - [postcss-calc](https://github.com/postcss/postcss-calc) - Lets you reduce `calc()` references whenever it's possible
+        - [postcss-purgecss](https://github.com/FullHuman/postcss-purgecss) - Remove unused CSS
+        - [postcss-flexibility](https://github.com/7rulnik/postcss-flexibility) - Flexbox polyfills
+        - [pixrem](https://github.com/robwierzbowski/node-pixrem) - Generate pixel fallbacks for rem units
+        - [cssnano](https://cssnano.co/) - Modern CSS compression
+        - [autoprefixer](https://github.com/postcss/autoprefixer) - Vendor prefix CSS
 - [SVG Symbols](https://github.com/svgstore/svgstore-cli) - Combine SVG files into symbols
     - [SVGO](https://github.com/svg/svgo) - Cleanup and minify SVG files
-- [Browserify/Babelify](http://browserify.org/) - JavaScript bundling
 - [Browsersync](https://www.browsersync.io/) - Synchronised browser testing
 
 
@@ -29,19 +34,19 @@
 1. __Install the dependencies__
 
     ```
-    $ npm install
+    $ yarn install
     ```
 
 1. __Development__
 
     ```
-    $ npm run dev
+    $ yarn dev
     ```
 
 1. __Staging/Production__
 
     ```
-    $ npm run build
+    $ yarn build
     ```
 
 

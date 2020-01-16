@@ -2,28 +2,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png"/>
     <title>{{ title }}</title>
+
+    {# Prefetch/preload #}
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="preload" href="/js/app.min.js" as="script">
+
+    {# Styles #}
     <link href="/css/style.css" rel="stylesheet">
 
-    <!-- SEO -->
-    <meta name="author" content="Kyle Brumm">
-    <meta name="description" content="{{ description }}">
-
-    <!-- Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
-    <meta property="og:url" content="/">
-    <meta property="og:image" content="/assets/images/cover.jpg"/>
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="{{ description }}">
-    <meta name="twitter:url" content="/">
-    <meta name="twitter:image" content="/assets/images/cover.jpg"/>
-
-    <!-- Google Analytics -->
-    <!-- Add GA code here -->
+    {# Google Analytics #}
+    {# Add GA code here #}
 </head>

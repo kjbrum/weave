@@ -1,0 +1,13 @@
+html {
+    @apply font-sans;
+}
+
+body {
+    @apply font-sans;
+    @apply antialiased;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+}

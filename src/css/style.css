@@ -1,0 +1,21 @@
+/*
+// Tailwind - Base
+// ------------------------
+*/
+@import "tailwindcss/base";
+@import "./_base.css";
+
+/*
+// Tailwind - Components
+// ------------------------
+*/
+@import "tailwindcss/components";
+/* Import custom component files here */
+/* @import "./components/_modal.css"; */
+
+
+/*
+// Tailwind - Utilities
+// ------------------------
+*/
+@import "tailwindcss/utilities";

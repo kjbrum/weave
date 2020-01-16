@@ -1,5 +1,3 @@
-require('./vendor/modernizr.js');
+import TestModule from './modules/test.js'
 
-import TestModule from './modules/test.js';
-
-new TestModule('Testing');
+new TestModule('Testing')

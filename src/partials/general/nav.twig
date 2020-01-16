@@ -1,9 +1,7 @@
-<div class="container">
-    <nav>
-        <ul class="list--inline">
-            <li {{ home ? 'class="active"' }}><a href="/">Home</a></li>
-            <li {{ news ? 'class="active"' }}><a href="/news">News</a></li>
-            <li {{ contact ? 'class="active"' }}><a href="/contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</div>
+<nav>
+    <ul class="flex">
+        <li {{ home ? 'class="active"' }}><a href="/">Home</a></li>
+        <li {{ news ? 'class="active"' }}><a href="/news">News</a></li>
+        <li {{ contact ? 'class="active"' }}><a href="/contact.html">Contact</a></li>
+    </ul>
+</nav>

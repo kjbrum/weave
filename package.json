@@ -3,30 +3,19 @@
   "version": "0.1.0",
   "description": "Prototyping made easy.",
   "scripts": {
-    "autoprefix:css": "postcss --use autoprefixer --use postcss-flexibility --use pixrem --replace build/css/*.css",
-    "browsersync": "browser-sync start --server 'build' --files 'build/**/*'",
-    "build": "npm-run-all clean setup build:svgs build:svg-defs --parallel build:*",
-    "build:css": "npm-run-all compile:css autoprefix:css",
-    "build:images": "rm -rf 'build/assets/images/*' && cp -a 'src/assets/images/.' 'build/assets/images/'",
-    "build:js": "npm-run-all --parallel build:js:*",
-    "build:js:app": "browserify 'src/js/app.js' --outfile 'build/js/app.min.js'",
     "build:svgs": "svgo --folder='src/assets/svg' --output 'build/assets/svg' --config=svgo.yml --quiet",
     "build:svg-defs": "svgstore -o 'src/assets/svg-defs.svg' --inline 'build/assets/svg/*.svg' && cp 'src/assets/svg-defs.svg' 'build/assets/svg-defs.svg'",
     "build:twig": "node scripts/twig-build.js",
-    "clean": "rm -rf 'build'",
-    "compile:css": "node-sass --source-map true --output-style compressed src/scss/style.scss build/css/style.css",
-    "deploy": "surge ./build <project>.surge.sh",
-    "dev": "npm-run-all build --parallel watch:*",
-    "prod": "npm run build && npm run deploy",
-    "setup": "mkdir 'build' && mkdir 'build/css' && mkdir 'build/js' && mkdir 'build/assets' && mkdir 'build/assets/images' && mkdir 'build/assets/svg'",
-    "watch:browsersync": "npm run browsersync",
-    "watch:css": "chokidar 'src/scss' --command 'npm run build:css'",
-    "watch:images": "chokidar 'src/assets/images' --command 'npm run build:images'",
-    "watch:js": "npm-run-all --parallel watch:js:*",
-    "watch:js:app": "chokidar 'src/js/**/*.js' --command 'npm run build:js:app'",
     "watch:svgs": "chokidar 'src/assets/svg' --command 'npm run build:svgs'",
     "watch:svg-defs": "chokidar 'build/assets/svg' --command 'npm run build:svg-defs'",
-    "watch:twig": "chokidar 'src/pages' 'src/partials' 'src/data' 'src/assets/svg-defs.svg' --command 'npm run build:twig'"
+    "watch:twig": "chokidar 'src/pages' 'src/partials' 'src/data' 'src/assets/svg-defs.svg' --command 'npm run build:twig'",
+
+    "clean": "rm -rf build/",
+    "deploy": "surge ./build <project>.surge.sh",
+    "dev:build": "yarn clean && NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "yarn clean && NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -39,38 +28,26 @@
   },
   "homepage": "https://github.com/kjbrum/weave#readme",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "autoprefixer": "^9.4.7",
-    "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
-    "chokidar-cli": "^1.2.1",
-    "glob": "^7.1.3",
-    "js-beautify": "^1.8.9",
-    "node-sass": "^4.11.0",
-    "npm-run-all": "^4.1.5",
-    "pixrem": "^4.0.1",
-    "postcss-cli": "^6.1.1",
+    "@fullhuman/postcss-purgecss": "^1.3.0",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cssnano": "^4.1.10",
+    "laravel-mix": "^5.0.1",
+    "pixrem": "^5.0.0",
+    "postcss-calc": "^7.0.1",
     "postcss-flexibility": "^2.0.0",
-    "svgo": "^1.1.1",
-    "svgstore-cli": "^1.3.1",
-    "twig": "^1.13.2"
+    "postcss-hexrgba": "^2.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
+    "resolve-url-loader": "^3.1.1",
+    "sass": "^1.24.2",
+    "sass-loader": "^8.0.0",
+    "tailwindcss": "^1.1.4",
+    "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
     "last 2 versions",
     "> 1%",
     "ie > 8"
-  ],
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "@babel/preset-env"
-          ]
-        }
-      ]
-    ]
-  }
+  ]
 }

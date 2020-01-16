@@ -3,25 +3,26 @@
     {% include 'head.twig' %}
 
     <body>
-        <!-- SVG defs -->
+    	<a href="#content" class="skip-to-content">Skip to content</a>
+
+        {# SVG defs #}
         <div class="hide">
             {% include '../../assets/svg-defs.svg' %}
         </div>
 
-        <!-- Navigation -->
-        {% include '../general/nav.twig' %}
+        {# Header #}
+        {% include '../general/header.twig' %}
 
-        <!-- Hero -->
-        {% include '../sections/section-hero.twig' %}
+        {# Content #}
+        <main id="content" role="main">
+            {% block content %}
+            {% endblock %}
+        </main>
 
-        <!-- Content -->
-        {% block content %}
-        {% endblock %}
-
-        <!-- Footer -->
+        {# Footer #}
         {% include '../general/footer.twig' %}
 
-        <!-- JavaScript -->
-        <script src="/js/app.min.js"></script>
+        {# JavaScript #}
+        <script src="/js/app.min.js" async></script>
     </body>
 </html>
